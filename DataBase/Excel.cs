@@ -40,20 +40,22 @@ namespace DataBase
 
         public string ReadCell(int i, int j) //Чтение из клетки (текст)
         {
-            i++; j++;
             if (ws.Cells[i,j].Value2 != null)
-                return ws.Cells[i,j].Value2;
+                return ReadRange(i,j,i,j)[0,0];
             return "";
         }
 
         public string[,] ReadRange(int starti, int startj, int endi, int endj) //Чтение целого диапазона клеток
         {
-            string[,] result = new string[endi - starti, endj - startj];
+            string[,] result = new string[endi - starti + 1, endj - startj + 1];
             for (int i = starti; i <= endi; i++)
             {
-                for (int j = startj; j <= endj - startj; j++)
+                for (int j = startj; j <= endj; j++)
                 {
-                    result[i - starti, j - startj] = ws.Cells[i, j].ToString();
+                    if (ws.Cells[i, j].Value2 != null)
+                        result[i - starti, j - startj] = ((Microsoft.Office.Interop.Excel.Range)ws.Cells[i, j]).Value2.ToString();
+                    else
+                        result[i - starti, j - startj] = "";
                 }
             }
             return result;
@@ -61,7 +63,6 @@ namespace DataBase
 
         public void WriteToCell(int i, int j, string str) //Запись в клетку (текст)
         {
-            i++; j++;
             ws.Cells[i, j].Value2 = str;
         }
 
@@ -125,11 +126,6 @@ namespace DataBase
         public void SaveAs(string path) //Сохранить как
         {
             wb.SaveAs(path);
-        }
-
-        public void Open()
-        {
-            wb = excel.Workbooks.Open(path);
         }
 
         public void Close() //Закрыть файл
