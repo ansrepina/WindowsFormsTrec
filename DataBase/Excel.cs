@@ -65,7 +65,7 @@ namespace DataBase
             ws.Cells[i, j].Value2 = str;
         }
 
-        public void WriteRange(int starti, int startj, int endi, int endj, string[,] data)
+        public void WriteRange(int starti, int startj, int endi, int endj, string[,] data) //Запись массива в диапазон клеток
         {
             for (int i = starti; i <= endi; i++)
             {
@@ -75,6 +75,46 @@ namespace DataBase
                     ws.Cells[i, j].Value2 = str;
                 }
             }
+        }
+
+        public void MoveRange(int starti, int startj, int endi, int endj, int newStarti, int newStartj) //Сдвиг диапазона
+        {
+            int newEndi = newStarti + endi - starti;
+            int newEndj = newStartj + endj - startj;
+            string[,] str = ReadRange(starti, startj, endi, endj);
+            ClearRange(starti, startj, endi, endj);
+            WriteRange(newStarti, newStartj, newEndi, newEndj, str);
+        }
+
+        public void FillRange(int starti, int startj, int endi, int endj, string str) //Заполнение всех клеток
+        {
+            string[,] Filler = new string[endi - starti + 1, endj - startj + 1];
+            for (int i = 0; i < Filler.GetLength(0); i++)
+            {
+                for (int j = 0; j < Filler.GetLength(1); j++)
+                {
+                    Filler[i, j] = str;
+                }
+            }
+            WriteRange(starti, startj, endi, endj, Filler);
+        }
+
+        public void ClearRange(int starti, int startj, int endi, int endj) //Очистка диапазона
+        {
+            string[,] empty = new string[endi - starti + 1, endj - startj + 1];
+            for (int i = 0; i < empty.GetLength(0); i++)
+            {
+                for (int j = 0; j < empty.GetLength(1); j++)
+                {
+                    empty[i, j] = "";
+                }
+            }
+            WriteRange(starti, startj, endi, endj, empty);
+        }
+
+        public void ChangeName(string newName) //Смена имени листа
+        {
+            ws.Name = newName;
         }
 
         public void Save() //Сохранить
