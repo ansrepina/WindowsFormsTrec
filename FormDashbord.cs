@@ -16,13 +16,29 @@ namespace WindowsFormsTrec
         {
             InitializeComponent();
         }
+        private void BalanceOutput(object sender, LayoutEventArgs e) //вывод баланса из базы данных на печать в виде итоговой суммы (int)
+        {
 
-        private void chartRealFact_Click(object sender, EventArgs e)
+        }
+        private void GeneralExpensesOutput(object sender, LayoutEventArgs e) //вывод дохода из базы данных на печать
         {
 
         }
 
+        private void TotalProfitOutput(object sender, LayoutEventArgs e) //вывод прибыли
+        {
+
+        }
+        /// <summary>
+        /// //////////////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void panelHome_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void chartRealFact_Click(object sender, EventArgs e)
         {
 
         }
@@ -37,35 +53,14 @@ namespace WindowsFormsTrec
 
         }
 
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxBalance_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void textBoxGeneralExpenses_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
         {
@@ -77,12 +72,24 @@ namespace WindowsFormsTrec
 
         }
 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+       
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }

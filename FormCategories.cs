@@ -76,5 +76,15 @@ namespace WindowsFormsTrec
         {
 
         }
+
+        private void textBox2_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EnterPrice(object sender, EventArgs e)
+        {
+
+        }
     }
 }
