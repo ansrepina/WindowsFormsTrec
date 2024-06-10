@@ -23,11 +23,13 @@ namespace DataBase
             ws = wb.Worksheets[1];
         }
 
+        // Работа с файлом и листами
         public void CreateNewFile() //Создание нового файла
         {
             wb = excel.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
             ws = wb.Worksheets[1];
         }
+
         public void CreateNewSheet() //Создание нового листа после текущего
         {
             Worksheet temptSheet = wb.Worksheets.Add(After: ws);
@@ -38,6 +40,46 @@ namespace DataBase
             this.ws = wb.Worksheets[sheet];
         }
 
+        public void ChangeName(string newName) //Смена имени листа
+        {
+            ws.Name = newName;
+        }
+
+        public void Save() //Сохранить
+        {
+            wb.Save();
+        }
+
+        public void SaveAs(string path) //Сохранить как
+        {
+            wb.SaveAs(path);
+        }
+
+        public void Close() //Закрыть файл
+        {
+            wb.Close();
+        }
+
+        // Формулы
+        public void WriteSumFormula(int i, int j, int starti, int startj, int endi, int endj) //Сумма диапазона в ячейку
+        {
+            string formula = $"=SUM({ws.Cells[starti, startj].Address}:{ws.Cells[endi, endj].Address})";
+            ws.Cells[i, j].Formula = formula;
+        }
+
+        public void WriteSumFormulaToRange(int startR, int startC, int endR, int endC, int starti, int startj, int endi, int endj) //Cуммы диапазонов в диапазон
+        {
+            for (int i = startR; i <= endR; i++)
+            {
+                for (int j = startC; j <= endC; j++)
+                {
+                    string formula = $"=SUM({ws.Cells[starti + i - startR, startj + j - startC].Address}:{ws.Cells[endi + i - startR, endj + j - startC].Address})";
+                    ws.Cells[i, j].Formula = formula;
+                }
+            }
+        }
+
+        // Чтение
         public string ReadCell(int i, int j) //Чтение из клетки (текст)
         {
             if (ws.Cells[i,j].Value2 != null)
@@ -47,20 +89,20 @@ namespace DataBase
 
         public string[,] ReadRange(int starti, int startj, int endi, int endj) //Чтение целого диапазона клеток
         {
-            string[,] result = new string[endi - starti + 1, endj - startj + 1];
-            for (int i = starti; i <= endi; i++)
+            var range = ws.Range[ws.Cells[starti, startj], ws.Cells[endi, endj]];
+            object[,] rangeValues = range.Value2;
+            string[,] values = new string[rangeValues.GetLength(0), rangeValues.GetLength(1)];
+            for (int i = 0; i < values.GetLength(0); i++)
             {
-                for (int j = startj; j <= endj; j++)
+                for (int j = 0; j < values.GetLength(1); j++)
                 {
-                    if (ws.Cells[i, j].Value2 != null)
-                        result[i - starti, j - startj] = ((Microsoft.Office.Interop.Excel.Range)ws.Cells[i, j]).Value2.ToString();
-                    else
-                        result[i - starti, j - startj] = "";
+                    values[i, j] = rangeValues[i+1, j+1] != null? rangeValues[i+1, j+1].ToString() : "";
                 }
             }
-            return result;
+            return values;
         }
 
+        // Запись
         public void WriteToCell(int i, int j, string str) //Запись в клетку (текст)
         {
             ws.Cells[i, j].Value2 = str;
@@ -68,16 +110,11 @@ namespace DataBase
 
         public void WriteRange(int starti, int startj, int endi, int endj, string[,] data) //Запись массива в диапазон клеток
         {
-            for (int i = starti; i <= endi; i++)
-            {
-                for (int j = startj; j <= endj; j++)
-                {
-                    string str = data[i - starti, j - startj].ToString();
-                    ws.Cells[i, j].Value2 = str;
-                }
-            }
+            var range = ws.Range[ws.Cells[starti, startj], ws.Cells[endi, endj]];
+            range.Value2 = data;
         }
 
+        //Редактирование
         public void MoveRange(int starti, int startj, int endi, int endj, int newStarti, int newStartj) //Сдвиг диапазона
         {
             int newEndi = newStarti + endi - starti;
@@ -102,35 +139,7 @@ namespace DataBase
 
         public void ClearRange(int starti, int startj, int endi, int endj) //Очистка диапазона
         {
-            string[,] empty = new string[endi - starti + 1, endj - startj + 1];
-            for (int i = 0; i < empty.GetLength(0); i++)
-            {
-                for (int j = 0; j < empty.GetLength(1); j++)
-                {
-                    empty[i, j] = "";
-                }
-            }
-            WriteRange(starti, startj, endi, endj, empty);
-        }
-
-        public void ChangeName(string newName) //Смена имени листа
-        {
-            ws.Name = newName;
-        }
-
-        public void Save() //Сохранить
-        {
-            wb.Save();
-        }
-        
-        public void SaveAs(string path) //Сохранить как
-        {
-            wb.SaveAs(path);
-        }
-
-        public void Close() //Закрыть файл
-        {
-            wb.Close();
+            FillRange(starti, startj, endi, endj, "");
         }
     }
 }
