@@ -50,9 +50,9 @@
             // 
             this.buttonHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.buttonHelp.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonHelp.Location = new System.Drawing.Point(0, 411);
+            this.buttonHelp.Location = new System.Drawing.Point(0, 505);
             this.buttonHelp.Name = "buttonHelp";
-            this.buttonHelp.Size = new System.Drawing.Size(260, 32);
+            this.buttonHelp.Size = new System.Drawing.Size(202, 32);
             this.buttonHelp.TabIndex = 0;
             this.buttonHelp.Text = "ПОМОЩЬ";
             this.buttonHelp.UseVisualStyleBackColor = false;
@@ -64,7 +64,7 @@
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.Tan;
+            this.panelMenu.BackColor = System.Drawing.Color.Green;
             this.panelMenu.Controls.Add(this.buttonSetting);
             this.panelMenu.Controls.Add(this.button3);
             this.panelMenu.Controls.Add(this.ButtonCategory);
@@ -75,51 +75,57 @@
             this.panelMenu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(260, 443);
+            this.panelMenu.Size = new System.Drawing.Size(202, 537);
             this.panelMenu.TabIndex = 1;
             // 
             // buttonSetting
             // 
+            this.buttonSetting.BackColor = System.Drawing.Color.Transparent;
             this.buttonSetting.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonSetting.Location = new System.Drawing.Point(0, 207);
             this.buttonSetting.Name = "buttonSetting";
-            this.buttonSetting.Size = new System.Drawing.Size(260, 51);
+            this.buttonSetting.Size = new System.Drawing.Size(202, 51);
             this.buttonSetting.TabIndex = 5;
             this.buttonSetting.Text = "Настройки";
-            this.buttonSetting.UseVisualStyleBackColor = true;
+            this.buttonSetting.UseVisualStyleBackColor = false;
             this.buttonSetting.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.Transparent;
             this.button3.Dock = System.Windows.Forms.DockStyle.Top;
             this.button3.Location = new System.Drawing.Point(0, 159);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(260, 48);
+            this.button3.Size = new System.Drawing.Size(202, 48);
             this.button3.TabIndex = 4;
             this.button3.Text = "Отчет";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // ButtonCategory
             // 
+            this.ButtonCategory.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonCategory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonCategory.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.ButtonCategory.Dock = System.Windows.Forms.DockStyle.Top;
             this.ButtonCategory.Location = new System.Drawing.Point(0, 111);
             this.ButtonCategory.Name = "ButtonCategory";
-            this.ButtonCategory.Size = new System.Drawing.Size(260, 48);
+            this.ButtonCategory.Size = new System.Drawing.Size(202, 48);
             this.ButtonCategory.TabIndex = 3;
             this.ButtonCategory.Text = "Транзакции";
-            this.ButtonCategory.UseVisualStyleBackColor = true;
+            this.ButtonCategory.UseVisualStyleBackColor = false;
             this.ButtonCategory.Click += new System.EventHandler(this.button2_Click_3);
             // 
             // ButtonHome
             // 
+            this.ButtonHome.BackColor = System.Drawing.Color.Transparent;
             this.ButtonHome.Dock = System.Windows.Forms.DockStyle.Top;
             this.ButtonHome.Location = new System.Drawing.Point(0, 63);
             this.ButtonHome.Name = "ButtonHome";
-            this.ButtonHome.Size = new System.Drawing.Size(260, 48);
+            this.ButtonHome.Size = new System.Drawing.Size(202, 48);
             this.ButtonHome.TabIndex = 2;
             this.ButtonHome.Text = "Дашборд";
-            this.ButtonHome.UseVisualStyleBackColor = true;
+            this.ButtonHome.UseVisualStyleBackColor = false;
             this.ButtonHome.Click += new System.EventHandler(this.button2_Click_2);
             // 
             // TopPanel
@@ -127,19 +133,19 @@
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanel.Location = new System.Drawing.Point(0, 0);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(260, 63);
+            this.TopPanel.Size = new System.Drawing.Size(202, 63);
             this.TopPanel.TabIndex = 2;
             this.TopPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TopPanel_Paint);
             // 
             // TopPanelTitle
             // 
-            this.TopPanelTitle.BackColor = System.Drawing.Color.BurlyWood;
+            this.TopPanelTitle.BackColor = System.Drawing.Color.White;
             this.TopPanelTitle.Controls.Add(this.label1);
             this.TopPanelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanelTitle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.TopPanelTitle.Location = new System.Drawing.Point(260, 0);
+            this.TopPanelTitle.Location = new System.Drawing.Point(202, 0);
             this.TopPanelTitle.Name = "TopPanelTitle";
-            this.TopPanelTitle.Size = new System.Drawing.Size(810, 63);
+            this.TopPanelTitle.Size = new System.Drawing.Size(835, 63);
             this.TopPanelTitle.TabIndex = 2;
             this.TopPanelTitle.Paint += new System.Windows.Forms.PaintEventHandler(this.TopPanelLeft_Paint);
             // 
@@ -158,11 +164,11 @@
             // 
             // panelDesktopPanel
             // 
-            this.panelDesktopPanel.BackColor = System.Drawing.Color.White;
+            this.panelDesktopPanel.BackColor = System.Drawing.Color.OldLace;
             this.panelDesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktopPanel.Location = new System.Drawing.Point(260, 63);
+            this.panelDesktopPanel.Location = new System.Drawing.Point(202, 63);
             this.panelDesktopPanel.Name = "panelDesktopPanel";
-            this.panelDesktopPanel.Size = new System.Drawing.Size(810, 380);
+            this.panelDesktopPanel.Size = new System.Drawing.Size(835, 474);
             this.panelDesktopPanel.TabIndex = 6;
             this.panelDesktopPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktopPanel_Paint);
             // 
@@ -171,7 +177,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Moccasin;
-            this.ClientSize = new System.Drawing.Size(1070, 443);
+            this.ClientSize = new System.Drawing.Size(1037, 537);
             this.Controls.Add(this.panelDesktopPanel);
             this.Controls.Add(this.TopPanelTitle);
             this.Controls.Add(this.panelMenu);
