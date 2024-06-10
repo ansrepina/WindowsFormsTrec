@@ -17,6 +17,10 @@ namespace WindowsFormsTrec
         static void Main()
         {
             //TransactionDataBase dataBase = new TransactionDataBase("Test");
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+          //  Application.Run(new LoginForm());
+            TransactionDataBase dataBase = new TransactionDataBase("Test");
             //dataBase.OpenFile();
             //dataBase.AddNewCategory("Новая", 1);
             //dataBase.AddNewCategory("Последняя", 2);sss
