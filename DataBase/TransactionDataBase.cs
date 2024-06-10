@@ -19,15 +19,17 @@ namespace DataBase
         private int outcomeBegining;
         private int outcomeEnding;
         private List<string> categorys;
+        private int newAdd;
 
-        public TransactionDataBase(string accName) //Временное решение для конструктора
+        public TransactionDataBase(string accName) //Конструктор для создания новой базы данных
         {
             this.accName = accName;
             incomeBegining = 2;
             incomeEnding = 7;
             outcomeBegining = 9;
             outcomeEnding = 14;
-            categorys = new List<string>{ "Доходы", "1", "2", "3", "4", "Другое", "", "Расходы", "1", "2", "3", "4", "Другое" };
+            newAdd = 2;
+            categorys = new List<string>{ "Доходы", "1", "2", "3", "4", "Другое", "", "Расходы", "5", "6", "7", "8", "Другое" };
             CreateDataBase();
         }
 
@@ -68,9 +70,44 @@ namespace DataBase
                     }
             }
         }
+        public void AddNewTransaction(int type, string category, string date, double value)
+        {
+            SwitchDataBaseSheet(4);
+            switch (type)
+            {
+                case 1:
+                {
+                    AddIncomeTransaction(category, date, value);
+                    break;
+                }
+                case 2:
+                {
+                    AddOutcomeTransaction(category, date, value);
+                    break;
+                }
+            }
+            newAdd++;
+        } //Добавление новой операции доходов/расходов - 1/2
 
 
         //Действия с БД
+        public void AddIncomeTransaction(string category, string date, double value)
+        {
+            string[,] line = new string[,] { { "Поступление", $"{category}", $"{date}", $"{value}"} };
+            dataBase.WriteRange(newAdd, 1, newAdd, 4, line);
+            SwitchDataBaseSheet(3);
+            dataBase.AddToCell(FindDate(date), FindCategory(category), value);
+            dataBase.Save();
+        } //Добавить ДОХОД
+        public void AddOutcomeTransaction(string category, string date, double value)
+        {
+            string[,] line = new string[,] { { "Списание", $"{category}", $"{date}", $"{value}" } };
+            dataBase.WriteRange(newAdd, 1, newAdd, 4, line);
+            SwitchDataBaseSheet(3);
+            dataBase.AddToCell(FindDate(date), FindCategory(category), value);
+            dataBase.Save();
+        } //Добавить РАСХОД
+
         public void AddNewIncome(string name) //Добавление статьи ДОХОДОВ
         {
             SwitchDataBaseSheet(1);
@@ -189,6 +226,7 @@ namespace DataBase
 
             WriteHeadLines(); //Заголовки к листам
             GlobalSumCalculator(); //Пересчет сумм
+            MakeLinks();
         }
         public void WriteHeadLines() //Написание заголовков, только для создания файла
         {
@@ -202,12 +240,12 @@ namespace DataBase
 
             SwitchDataBaseSheet(1);
             dataBase.WriteRange(1, incomeBegining, 1, outcomeEnding, head);
-            dataBase.WriteRange(2, 1, 13, 1, column);
+            dataBase.WriteRange(2, 1, 14, 1, column);
             //Заголовки для первого листа
 
             SwitchDataBaseSheet(2);
             dataBase.WriteRange(1, incomeBegining, 1, outcomeEnding, head);
-            dataBase.WriteRange(2, 1, 13, 1, column);
+            dataBase.WriteRange(2, 1, 14, 1, column);
             //Заголовки для второго листа
 
             DateTime date = new DateTime(DateTime.Today.Year, 1, 1);
@@ -245,12 +283,10 @@ namespace DataBase
 
             SwitchDataBaseSheet(2);
             //Доходы ФАКТ на год
-            dataBase.WriteSumFormulaToRange(3, incomeBegining, 13, incomeBegining, 3, incomeBegining + 1, 3, incomeEnding);
-            dataBase.WriteSumFormulaToRange(2, incomeBegining, 2, incomeEnding, 3, incomeBegining, 13, incomeBegining);
+            dataBase.WriteSumFormulaToRange(2, incomeBegining, 2, incomeEnding, 3, incomeBegining, 13, incomeBegining); //Сумма
 
             //Расходы ФАКТ на год
-            dataBase.WriteSumFormulaToRange(3, outcomeBegining, 13, outcomeBegining, 3, outcomeBegining + 1, 3, outcomeEnding);
-            dataBase.WriteSumFormulaToRange(2, outcomeBegining, 2, outcomeEnding, 3, outcomeBegining, 13, outcomeBegining);
+            dataBase.WriteSumFormulaToRange(2, outcomeBegining, 2, outcomeEnding, 3, outcomeBegining, 13, outcomeBegining); //Сумма
 
             SwitchDataBaseSheet(3);
             //Доходы факт ДЕТАЛЬНО
@@ -283,11 +319,101 @@ namespace DataBase
             dataBase.WriteSumFormulaToRange(317, outcomeBegining, 317, outcomeEnding, 318, outcomeBegining, 347, outcomeBegining); //11
             dataBase.WriteSumFormulaToRange(348, outcomeBegining, 348, outcomeEnding, 349, outcomeBegining, 379, outcomeBegining); //12
         }
+        public void MakeLinks() //Cсылки для таблицы факта
+        {
+            SwitchDataBaseSheet(2);
+            //Доходы ФАКТ на год
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 3, incomeBegining, 3, incomeEnding, 2, incomeBegining, 2, incomeEnding);        //01
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 4, incomeBegining, 4, incomeEnding, 34, incomeBegining, 34, incomeEnding);      //01
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 5, incomeBegining, 5, incomeEnding, 64, incomeBegining, 64, incomeEnding);      //03
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 6, incomeBegining, 6, incomeEnding, 96, incomeBegining, 96, incomeEnding);      //04
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 7, incomeBegining, 7, incomeEnding, 127, incomeBegining, 127, incomeEnding);    //05
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 8, incomeBegining, 8, incomeEnding, 159, incomeBegining, 159, incomeEnding);    //06
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 9, incomeBegining, 9, incomeEnding, 190, incomeBegining, 190, incomeEnding);    //07
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 10, incomeBegining, 10, incomeEnding, 222, incomeBegining, 222, incomeEnding);  //08
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 11, incomeBegining, 11, incomeEnding, 254, incomeBegining, 254, incomeEnding);  //09
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 12, incomeBegining, 12, incomeEnding, 285, incomeBegining, 285, incomeEnding);  //10
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 13, incomeBegining, 13, incomeEnding, 317, incomeBegining, 317, incomeEnding);  //11
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 14, incomeBegining, 14, incomeEnding, 348, incomeBegining, 348, incomeEnding);  //12
 
+            //Расходы ФАКТ на год
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 3, outcomeBegining, 3, outcomeEnding, 2, outcomeBegining, 2, outcomeEnding);        //01
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 4, outcomeBegining, 4, outcomeEnding, 34, outcomeBegining, 34, outcomeEnding);      //01
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 5, outcomeBegining, 5, outcomeEnding, 64, outcomeBegining, 64, outcomeEnding);      //03
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 6, outcomeBegining, 6, outcomeEnding, 96, outcomeBegining, 96, outcomeEnding);      //04
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 7, outcomeBegining, 7, outcomeEnding, 127, outcomeBegining, 127, outcomeEnding);    //05
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 8, outcomeBegining, 8, outcomeEnding, 159, outcomeBegining, 159, outcomeEnding);    //06
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 9, outcomeBegining, 9, outcomeEnding, 190, outcomeBegining, 190, outcomeEnding);    //07
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 10, outcomeBegining, 10, outcomeEnding, 222, outcomeBegining, 222, outcomeEnding);  //08
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 11, outcomeBegining, 11, outcomeEnding, 254, outcomeBegining, 254, outcomeEnding);  //09
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 12, outcomeBegining, 12, outcomeEnding, 285, outcomeBegining, 285, outcomeEnding);  //10
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 13, outcomeBegining, 13, outcomeEnding, 317, outcomeBegining, 317, outcomeEnding);  //11
+            dataBase.WriteLinkFormulaToRange("Факт (детально)", 14, outcomeBegining, 14, outcomeEnding, 348, outcomeBegining, 348, outcomeEnding);  //12
+        }
+
+        //Поиск
+        public int FindDate(string date)
+        {
+            string[] Date = date.Split('.');
+            switch (Date[1])
+            {
+                case "01": //Январь
+                {
+                    return 2 + int.Parse(Date[0]);
+                }
+                case "02": //Февраль
+                {
+                    return 34 + int.Parse(Date[0]);
+                }
+                case "03": //Март
+                {
+                    return 64 + int.Parse(Date[0]);
+                }
+                case "04": //Апрель
+                {
+                    return 96 + int.Parse(Date[0]);
+                }
+                case "05": //Май
+                {
+                    return 127 + int.Parse(Date[0]);
+                }
+                case "06": //Июнь
+                {
+                    return 159 + int.Parse(Date[0]);
+                }
+                case "07": //Июль
+                {
+                    return 190 + int.Parse(Date[0]);
+                }
+                case "08": //Август
+                {
+                    return 222 + int.Parse(Date[0]);
+                }
+                case "09": //Сентябрь
+                {
+                    return 254 + int.Parse(Date[0]);
+                }
+                case "10": //Октябрь
+                {
+                    return 285 + int.Parse(Date[0]);
+                }
+                case "11": //Ноябрь
+                {
+                    return 317 + int.Parse(Date[0]);
+                }  
+                default: //Остался только Декабрь
+                {
+                    return 348 + int.Parse(Date[0]);
+                }
+            }
+        } //Поиск строки по дате
+        public int FindCategory(string category) //Поиск столбца по категории
+        {
+            return categorys.IndexOf(category) + 2;
+        }
 
         //Действия с книгами
         public void DeleteDataBase() { }
-
 
         //Действия с листами
         public void SwitchDataBaseSheet(int sheet) //Переключение текущего листа

@@ -16,19 +16,28 @@ namespace WindowsFormsTrec
         [STAThread]
         static void Main()
         {
-            //TransactionDataBase dataBase = new TransactionDataBase("Test");
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-          //  Application.Run(new LoginForm());
             TransactionDataBase dataBase = new TransactionDataBase("Test");
+            dataBase.OpenFile();
+            dataBase.AddNewTransaction(1, "1", DateTime.Today.ToShortDateString(), 1500);
+            dataBase.AddNewTransaction(2, "3", DateTime.Today.ToShortDateString(), 1500);
+            dataBase.AddNewTransaction(1, "4", DateTime.Today.ToShortDateString(), 1500);
+            dataBase.AddNewTransaction(2, "Другое", DateTime.Today.ToShortDateString(), 1500);
+            dataBase.AddNewTransaction(1, "4", DateTime.Today.ToShortDateString(), 1500);
+            dataBase.CloseFile();
+
             //dataBase.OpenFile();
             //dataBase.AddNewCategory("Новая", 1);
-            //dataBase.AddNewCategory("Последняя", 2);sss
+            //dataBase.AddNewCategory("Последняя", 2);
             //dataBase.AddNewCategory("НЕПоследняя)", 2);
             //dataBase.CloseFile();
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain());
+
+            //  Application.EnableVisualStyles();
+            //  Application.SetCompatibleTextRenderingDefault(false);
+            //  Application.Run(new LoginForm());
+            //  TransactionDataBase dataBase = new TransactionDataBase("Test");
+            //  Application.EnableVisualStyles();
+            //  Application.SetCompatibleTextRenderingDefault(false);
+            //  Application.Run(new FormMain());
         }
     }
 }
