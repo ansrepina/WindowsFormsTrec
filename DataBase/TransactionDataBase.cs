@@ -36,12 +36,12 @@ namespace DataBase
             dataBase = new Excel();
             dataBase.CreateNewFile();
             Blank();
-            dataBase.SaveAs($@"{accName}{DateTime.Today.Year}DataBase.xlsx");
+            dataBase.SaveAs($@"C\Desctop\{accName}{DateTime.Today.Year}DataBase.xlsx");
             dataBase.Close();
         }
         public void OpenFile() //Втавить в процесс авторизации
         {
-            dataBase = new Excel($@"{accName}{DateTime.Today.Year}DataBase.xlsx");
+            dataBase = new Excel($@"C\Desctop\{accName}{DateTime.Today.Year}DataBase.xlsx");
         }
         public void CloseFile() //Вставить в завершение работы
         {

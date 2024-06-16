@@ -7,10 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataBase;
+using static WindowsFormsTrec.FormCategories;
+using static WindowsFormsTrec.FormPlan;
 
 namespace WindowsFormsTrec
 {
-    public partial class FormDashbord : Form
+    public partial class FormDashbord : Form//, TransactionDataBase
     {
         public FormDashbord()
         {
@@ -29,11 +32,7 @@ namespace WindowsFormsTrec
         {
 
         }
-        /// <summary>
-        /// //////////////
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+      
         private void panelHome_Paint(object sender, PaintEventArgs e)
         {
 
@@ -45,12 +44,12 @@ namespace WindowsFormsTrec
 
         private void FormHome_Load(object sender, EventArgs e)
         {
-
+           // this.DataBase.Fill(this.)
         }
 
         private void chart2_Click(object sender, EventArgs e)
         {
-
+       
         }
 
        
@@ -72,12 +71,6 @@ namespace WindowsFormsTrec
 
         }
 
-       
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -92,6 +85,51 @@ namespace WindowsFormsTrec
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void chartRealFactIncome_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        
+
+        private void buttonOk_Click(object sender, EventArgs e)
+        {
+           
+      
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            /*//dataBase.OpenFile();
+            chartRealFactIncome.Series[0].XValueMember = "план";
+            chartRealFactIncome.Series[0].YValueMembers = "план";
+
+            chartRealFactIncome.Series[1].XValueMember = "факт";
+            chartRealFactIncome.Series[1].YValueMembers = "факт";
+
+            //  chartRealFactIncome.DataSource = database
+            chartRealFactIncome.DataBind();*/
         }
     }
 }

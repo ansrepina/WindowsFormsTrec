@@ -49,12 +49,17 @@ namespace WindowsFormsTrec
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-
+           // OpenClassForm(new FormMain(), sender);
+            FormMain form2 = new FormMain();
+            form2.Tag = this;
+            form2.Show(this);
+            Hide();
         }
 
         private void registerButton_Click(object sender, EventArgs e)
         {
 
         }
+       
     }
 }

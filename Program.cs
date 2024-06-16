@@ -16,19 +16,19 @@ namespace WindowsFormsTrec
         [STAThread]
         static void Main()
         {
-            //TransactionDataBase dataBase = new TransactionDataBase("Test");
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-          //  Application.Run(new LoginForm());
-            TransactionDataBase dataBase = new TransactionDataBase("Test");
-            //dataBase.OpenFile();
+
+         //  TransactionDataBase dataBase = new TransactionDataBase("Test");
+           Application.EnableVisualStyles();
+           Application.SetCompatibleTextRenderingDefault(false);
+          // Application.Run(new LoginForm());
+           // TransactionDataBase dataBase = new TransactionDataBase("Test");
+          //  dataBase.OpenFile();
             //dataBase.AddNewCategory("Новая", 1);
             //dataBase.AddNewCategory("Последняя", 2);sss
             //dataBase.AddNewCategory("НЕПоследняя)", 2);
-            //dataBase.CloseFile();
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain());
+           // dataBase.CloseFile();
+         Application.Run(new FormMain());
+           // dataBase.CloseFile();
         }
     }
 }
