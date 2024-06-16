@@ -24,7 +24,7 @@ namespace WindowsFormsTrec
            // TransactionDataBase dataBase = new TransactionDataBase("Test");
           //  dataBase.OpenFile();
             //dataBase.AddNewCategory("Новая", 1);
-            //dataBase.AddNewCategory("Последняя", 2);sss
+            //dataBase.AddNewCategory("Последняя", 2);
             //dataBase.AddNewCategory("НЕПоследняя)", 2);
            // dataBase.CloseFile();
          Application.Run(new FormMain());
