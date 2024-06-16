@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsTrec
+﻿using System;
+
+namespace WindowsFormsTrec
 {
     partial class FormPlan
     {
@@ -53,9 +55,9 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(43, 25);
+            this.panel1.Location = new System.Drawing.Point(24, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(708, 404);
+            this.panel1.Size = new System.Drawing.Size(745, 404);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -67,6 +69,7 @@
             this.maskedTextBox4.Size = new System.Drawing.Size(70, 22);
             this.maskedTextBox4.TabIndex = 34;
             this.maskedTextBox4.ValidatingType = typeof(int);
+            this.maskedTextBox4.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox4_MaskInputRejected);
             // 
             // label10
             // 
@@ -99,6 +102,7 @@
             this.buttonExpenseOk.TabIndex = 28;
             this.buttonExpenseOk.Text = "ок";
             this.buttonExpenseOk.UseVisualStyleBackColor = true;
+            this.buttonExpenseOk.Click += new System.EventHandler(this.buttonExpenseOk_Click);
             // 
             // label7
             // 
@@ -108,6 +112,7 @@
             this.label7.Size = new System.Drawing.Size(146, 16);
             this.label7.TabIndex = 30;
             this.label7.Text = "Введите транзакцию";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label6
             // 
@@ -118,6 +123,7 @@
             this.label6.Size = new System.Drawing.Size(531, 54);
             this.label6.TabIndex = 29;
             this.label6.Text = "Планируемые расходы";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label2
             // 
@@ -173,6 +179,16 @@
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

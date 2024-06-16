@@ -119,9 +119,10 @@ namespace WindowsFormsTrec
         {
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e, TransactionDataBase dataBase)
         {
-            /*//dataBase.OpenFile();
+            dataBase.OpenFile();
+
             chartRealFactIncome.Series[0].XValueMember = "план";
             chartRealFactIncome.Series[0].YValueMembers = "план";
 
@@ -129,7 +130,12 @@ namespace WindowsFormsTrec
             chartRealFactIncome.Series[1].YValueMembers = "факт";
 
             //  chartRealFactIncome.DataSource = database
-            chartRealFactIncome.DataBind();*/
+            chartRealFactIncome.DataBind();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

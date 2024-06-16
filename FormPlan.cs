@@ -41,5 +41,17 @@ namespace WindowsFormsTrec
         {
 
         }
+
+        private void buttonExpenseOk_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox4_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        
     }
 }

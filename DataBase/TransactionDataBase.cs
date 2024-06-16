@@ -70,7 +70,7 @@ namespace DataBase
                     }
             }
         }
-        public void AddNewTransaction(int type, string category, string date, double value)
+        public void AddNewTransaction(int type, string category, string date, double value) //
         {
             SwitchDataBaseSheet(4);
             switch (type)

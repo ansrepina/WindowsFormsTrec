@@ -139,7 +139,7 @@ namespace WindowsFormsTrec
 
         private void button2_Click_3(object sender, EventArgs e)
         {
-            OpenClassForm(new FormCategories(), sender);
+            OpenClassForm(new Categories(), sender);
         }
 
         private void TopPanelLeft_Paint(object sender, PaintEventArgs e)

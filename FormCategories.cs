@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataBase;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +15,7 @@ namespace WindowsFormsTrec
     {
         public FormCategories()
         {
-            InitializeComponent();
+           // InitializeComponent();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -88,6 +89,33 @@ namespace WindowsFormsTrec
         }
 
         private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void maskedTextBox4_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void buttonExpenseOk_Click(object sender, EventArgs e, TransactionDataBase dataBase)
+        {
+            int type = 1;
+            string category = maskedTextBox4.Text;
+            string date = "00.00.0000"; //DateTime.Today.ToShortStringDate();
+            double value = 4;
+            dataBase.AddNewTransaction(type, category, date, value);// int type, string category, string date, double value
+           
+            //  maskedTextBox4.
+        }
+
+        private void FormCategories_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormCategories_Load_1(object sender, EventArgs e)
         {
 
         }
