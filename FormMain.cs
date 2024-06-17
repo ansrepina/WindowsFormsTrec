@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataBase;
 
 
 namespace WindowsFormsTrec
 {
     public partial class FormMain : Form
     {
-        
+        //TransactionDataBase dataBase = new TransactionDataBase("Test2");
         private Button currentButton;
         private Form activeForm;
         private const string helpfile = "help.chm";
@@ -139,7 +140,7 @@ namespace WindowsFormsTrec
 
         private void button2_Click_3(object sender, EventArgs e)
         {
-            OpenClassForm(new Categories(), sender);
+            OpenClassForm(new FormCategories(), sender);
         }
 
         private void TopPanelLeft_Paint(object sender, PaintEventArgs e)

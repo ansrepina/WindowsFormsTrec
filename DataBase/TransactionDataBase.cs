@@ -21,7 +21,20 @@ namespace DataBase
         private List<string> categorys;
         private int newAdd;
 
-        public TransactionDataBase(string accName) //Конструктор для создания новой базы данных
+        public TransactionDataBase(string accName) //Конструктор для работы с существующей базой данных, для вызовов функций после первого запуска
+        {
+            this.accName = accName;
+            incomeBegining = 2;
+            incomeEnding = 7;
+            outcomeBegining = 9;
+            outcomeEnding = 14;
+            newAdd = 2;
+            categorys = new List<string> { "Доходы", "1", "2", "3", "4", "Другое", "", "Расходы", "5", "6", "7", "8", "Другое" };
+            OpenFile(); 
+           // CreateDataBase();
+        }
+
+        public TransactionDataBase(string accName, int dif) //Конструктор для создания новой базы данных
         {
             this.accName = accName;
             incomeBegining = 2;
@@ -32,18 +45,20 @@ namespace DataBase
             categorys = new List<string>{ "Доходы", "1", "2", "3", "4", "Другое", "", "Расходы", "5", "6", "7", "8", "Другое" };
             CreateDataBase();
         }
-
+        
         public void CreateDataBase() //Втавить в процесс создания аккаунта
         {
             dataBase = new Excel();
             dataBase.CreateNewFile();
             Blank();
-            dataBase.SaveAs($@"C\Desctop\{accName}{DateTime.Today.Year}DataBase.xlsx");
+           // dataBase.SaveAs($@"C\Desctop\{accName}{DateTime.Today.Year}DataBase.xlsx");
+            dataBase.SaveAs($@"{accName}{DateTime.Today.Year}DataBase.xlsx");
             dataBase.Close();
         }
         public void OpenFile() //Втавить в процесс авторизации
         {
-            dataBase = new Excel($@"C\Desctop\{accName}{DateTime.Today.Year}DataBase.xlsx");
+          //  dataBase = new Excel($@"C\Desctop\{accName}{DateTime.Today.Year}DataBase.xlsx");
+            dataBase = new Excel($@"{accName}{DateTime.Today.Year}DataBase.xlsx");
         }
         public void CloseFile() //Вставить в завершение работы
         {
@@ -70,7 +85,7 @@ namespace DataBase
                     }
             }
         }
-        public void AddNewTransaction(int type, string category, string date, double value) //
+        public void AddNewTransaction(int type, string category, string date, double value) 
         {
             SwitchDataBaseSheet(4);
             switch (type)

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataBase;
 
 namespace WindowsFormsTrec
 {
@@ -60,6 +61,10 @@ namespace WindowsFormsTrec
         {
 
         }
-       
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

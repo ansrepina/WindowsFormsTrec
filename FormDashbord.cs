@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataBase;
-using static WindowsFormsTrec.FormCategories;
 using static WindowsFormsTrec.FormPlan;
 
 namespace WindowsFormsTrec
