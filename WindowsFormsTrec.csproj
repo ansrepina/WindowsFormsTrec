@@ -69,16 +69,16 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
+	  
     <Compile Include="FormPlan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormPlan.Designer.cs">
       <DependentUpon>FormPlan.cs</DependentUpon>
     </Compile>
-=======
+	  
     <Compile Include="LoginDataBase.cs" />
->>>>>>> 15489ea9a06d0052af9b741ed593c63ed77f5b0e
+	  
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
