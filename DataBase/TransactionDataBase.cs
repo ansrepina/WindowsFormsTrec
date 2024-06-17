@@ -27,14 +27,14 @@ namespace DataBase
 
             incomeBegining = 2;
             incomeEnding = incomeBegining;
-            for (int i = incomeBegining; dataBase.ReadCell(1, i) != ""; i++) //Поиск абсциссы конца доходов
+            for (int i = incomeBegining; dataBase.ReadCell(1, i + 1) != ""; i++) //Поиск абсциссы конца доходов
             {
                 incomeEnding++;
             }
 
             outcomeBegining = incomeEnding + 2; //Начало расходов через клетку от конца Доходов
-            incomeEnding = outcomeBegining;
-            for (int i = outcomeBegining; dataBase.ReadCell(1, i) != ""; i++) //Поиск абсциссы конца расходов
+            outcomeEnding = outcomeBegining;
+            for (int i = outcomeBegining; dataBase.ReadCell(1, i + 1) != ""; i++) //Поиск абсциссы конца расходов
             {
                 outcomeEnding++;
             }
