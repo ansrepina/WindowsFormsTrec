@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Office.Interop.Excel;
-using _Excel = Microsoft.Office.Interop.Excel;
 
 namespace DataBase
 {
@@ -18,10 +17,40 @@ namespace DataBase
         private int incomeEnding;
         private int outcomeBegining;
         private int outcomeEnding;
-        private List<string> categorys;
+        private string[] mainHeadLine;
+        //public string[] IncomeCategories { get => mainHeadLine.Split[]; }
         private int newAdd;
 
-        public TransactionDataBase(string accName) //Конструктор для создания новой базы данных
+        public TransactionDataBase(string accName)
+        {
+            this.accName = accName;
+            OpenFile();
+
+            incomeBegining = 2;
+            incomeEnding = incomeBegining;
+            for (int i = incomeBegining; dataBase.ReadCell(1, i) != ""; i++) //Поиск абсциссы конца доходов
+            {
+                incomeEnding++;
+            }
+
+            outcomeBegining = incomeEnding + 2; //Начало расходов через клетку от конца Доходов
+            incomeEnding = outcomeBegining;
+            for (int i = outcomeBegining; dataBase.ReadCell(1, i) != ""; i++) //Поиск абсциссы конца расходов
+            {
+                outcomeEnding++;
+            }
+            mainHeadLine = dataBase.ReadLine(1, incomeBegining, outcomeEnding);
+
+            SwitchDataBaseSheet(4);
+            newAdd = 2;
+            for (int i = 2; dataBase.ReadCell(i,1) != ""; i++)
+            {
+                newAdd++;
+            }
+            CloseFile();
+        }
+
+        public TransactionDataBase(string accName, int dif) //Конструктор для создания новой базы данных
         {
             this.accName = accName;
             incomeBegining = 2;
@@ -29,7 +58,7 @@ namespace DataBase
             outcomeBegining = 9;
             outcomeEnding = 14;
             newAdd = 2;
-            categorys = new List<string>{ "Доходы", "1", "2", "3", "4", "Другое", "", "Расходы", "5", "6", "7", "8", "Другое" };
+            mainHeadLine = new string[] { "Доходы", "1", "2", "3", "4", "Прочие Д.", "", "Расходы", "5", "6", "7", "8", "Прочие Р." };
             CreateDataBase();
         }
 
@@ -38,16 +67,33 @@ namespace DataBase
             dataBase = new Excel();
             dataBase.CreateNewFile();
             Blank();
-            dataBase.SaveAs($@"{accName}{DateTime.Today.Year}DataBase.xlsx");
-            dataBase.Close();
+            string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string filePath = Path.Combine(documentsPath, $"{accName}{DateTime.Today.Year}DataBase.xlsx");
+            dataBase.SaveAs(filePath);
+            CloseFile();
         }
         public void OpenFile() //Втавить в процесс авторизации
         {
-            dataBase = new Excel($@"{accName}{DateTime.Today.Year}DataBase.xlsx");
+            string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string filePath = Path.Combine(documentsPath, $"{accName}{DateTime.Today.Year}DataBase.xlsx");
+
+            FileAttributes attributes = File.GetAttributes(filePath);
+            attributes &= ~FileAttributes.ReadOnly;
+            dataBase = new Excel(filePath);
+        }
+        public void Save() //После каждого действия с файлом
+        {
+            dataBase.Save();
         }
         public void CloseFile() //Вставить в завершение работы
         {
             dataBase.Close();
+        }
+
+        //Данные для диаграмм
+        public double[,] ReadDoubleRange(int starti, int startj, int endi, int endj)
+        {
+            return dataBase.ReadDoubleRange(starti, startj, endi, endj);
         }
 
 
@@ -59,13 +105,11 @@ namespace DataBase
                 case 1:
                     {
                         AddNewIncome(name);
-                        dataBase.Save();
                         break;
                     }
                 case 2:
                     {
                         AddNewOutcome(name);
-                        dataBase.Save();
                         break;
                     }
             }
@@ -97,7 +141,6 @@ namespace DataBase
             dataBase.WriteRange(newAdd, 1, newAdd, 4, line);
             SwitchDataBaseSheet(3);
             dataBase.AddToCell(FindDate(date), FindCategory(category), value);
-            dataBase.Save();
         } //Добавить ДОХОД
         public void AddOutcomeTransaction(string category, string date, double value)
         {
@@ -105,7 +148,6 @@ namespace DataBase
             dataBase.WriteRange(newAdd, 1, newAdd, 4, line);
             SwitchDataBaseSheet(3);
             dataBase.AddToCell(FindDate(date), FindCategory(category), value);
-            dataBase.Save();
         } //Добавить РАСХОД
 
         public void AddNewIncome(string name) //Добавление статьи ДОХОДОВ
@@ -141,13 +183,13 @@ namespace DataBase
             // Пересчёт глобальных сумм 
 
             List<string> newList = new List<string>();
-            for (int i = 0; i < categorys.Count; i++)
+            for (int i = 0; i < mainHeadLine.Length; i++)
             {
-                if (i < categorys.Count - 1 && categorys[i+1] == "")
+                if (i < mainHeadLine.Length - 1 && mainHeadLine[i+1] == "")
                     newList.Add(name);
-                newList.Add(categorys[i]);
+                newList.Add(mainHeadLine[i]);
             }
-            categorys = newList;
+            mainHeadLine = newList.ToArray();
             //Запоминание нового списка
         }
         public void AddNewOutcome(string name) //Добавление статьи РАСХОДОВ
@@ -183,28 +225,28 @@ namespace DataBase
             //Пересчёт гдобальных сумм
 
             List<string> newList = new List<string>();
-            for (int i = 0; i < categorys.Count; i++)
+            for (int i = 0; i < mainHeadLine.Length; i++)
             {
-                if (categorys.Count - 2 == i)
+                if (mainHeadLine.Length - 2 == i)
                     newList.Add(name);
-                newList.Add(categorys[i]);
+                newList.Add(mainHeadLine[i]);
             }
-            categorys = newList;
+            mainHeadLine = newList.ToArray();
             //Новый список
         }
 
         public void Blank() //Автозаполнение базы данных (только для первого входа в году)
         {
-            dataBase.FillRange(3, incomeBegining + 1, 13, incomeEnding, "0");
-            dataBase.FillRange(3, outcomeBegining + 1, 13, outcomeEnding, "0");
-            dataBase.ChangeName("План на год");
+            dataBase.FillRange(3, incomeBegining + 1, 14, incomeEnding, "0");
+            dataBase.FillRange(3, outcomeBegining + 1, 14, outcomeEnding, "0");
+            dataBase.ChangeSheetName("План на год");
             //Заготовка под первый лист
 
             dataBase.CreateNewSheet();
             SwitchDataBaseSheet(2);
-            dataBase.FillRange(2, incomeBegining + 1, 13, incomeEnding, "0");
-            dataBase.FillRange(2, outcomeBegining + 1, 13, outcomeEnding, "0");
-            dataBase.ChangeName("Факт на год");
+            dataBase.FillRange(2, incomeBegining + 1, 14, incomeEnding, "0");
+            dataBase.FillRange(2, outcomeBegining + 1, 14, outcomeEnding, "0");
+            dataBase.ChangeSheetName("Факт на год");
             //Заготовка под второй лист
 
             dataBase.CreateNewSheet();
@@ -216,12 +258,12 @@ namespace DataBase
                 dataBase.FillRange(379, incomeBegining + 1, 379, incomeEnding, "0");
                 dataBase.FillRange(379, outcomeBegining + 1, 379, outcomeEnding, "0");
             }
-            dataBase.ChangeName("Факт (детально)");
+            dataBase.ChangeSheetName("Факт (детально)");
             //Заготовка под третий лист
 
             dataBase.CreateNewSheet();
             SwitchDataBaseSheet(4);
-            dataBase.ChangeName("История");
+            dataBase.ChangeSheetName("История");
             //Заготовка под четвёртый лист
 
             WriteHeadLines(); //Заголовки к листам
@@ -232,10 +274,10 @@ namespace DataBase
         {
             string[,] column = new string[,] { { "Год" }, { "Январь" }, { "Февраль" }, { "Март" }, { "Апрель" }, { "Май" }, { "Июнь" }, { "Июль" }, { "Август" }, { "Сентябрь" }, { "Октябрь" }, { "Ноябрь" }, { "Декабрь" } };
             string[,] historyHead = new string[,] { { "Тип операции", "Категория", "Дата", "Сумма" } };
-            string[,] head = new string[1, categorys.Count];
-            for (int i = 0; i < categorys.Count; i++)
+            string[,] head = new string[1, mainHeadLine.Length];
+            for (int i = 0; i < mainHeadLine.Length; i++)
             {
-                head[0, i] = categorys[i];
+                head[0, i] = mainHeadLine[i];
             }
 
             SwitchDataBaseSheet(1);
@@ -274,19 +316,19 @@ namespace DataBase
         {
             SwitchDataBaseSheet(1);
             //Доходы ПЛАН на год
-            dataBase.WriteSumFormulaToRange(3, incomeBegining, 13, incomeBegining, 3, incomeBegining + 1, 3, incomeEnding);
-            dataBase.WriteSumFormulaToRange(2, incomeBegining, 2, incomeEnding, 3, incomeBegining, 13, incomeBegining);
+            dataBase.WriteSumFormulaToRange(3, incomeBegining, 14, incomeBegining, 3, incomeBegining + 1, 3, incomeEnding);
+            dataBase.WriteSumFormulaToRange(2, incomeBegining, 2, incomeEnding, 3, incomeBegining, 14, incomeBegining);
 
             //Расходы ПЛАН на год
-            dataBase.WriteSumFormulaToRange(3, outcomeBegining, 13, outcomeBegining, 3, outcomeBegining + 1, 3, outcomeEnding);
-            dataBase.WriteSumFormulaToRange(2, outcomeBegining, 2, outcomeEnding, 3, outcomeBegining, 13, outcomeBegining);
+            dataBase.WriteSumFormulaToRange(3, outcomeBegining, 14, outcomeBegining, 3, outcomeBegining + 1, 3, outcomeEnding);
+            dataBase.WriteSumFormulaToRange(2, outcomeBegining, 2, outcomeEnding, 3, outcomeBegining, 14, outcomeBegining);
 
             SwitchDataBaseSheet(2);
             //Доходы ФАКТ на год
-            dataBase.WriteSumFormulaToRange(2, incomeBegining, 2, incomeEnding, 3, incomeBegining, 13, incomeBegining); //Сумма
+            dataBase.WriteSumFormulaToRange(2, incomeBegining, 2, incomeEnding, 3, incomeBegining, 14, incomeBegining); //Сумма
 
             //Расходы ФАКТ на год
-            dataBase.WriteSumFormulaToRange(2, outcomeBegining, 2, outcomeEnding, 3, outcomeBegining, 13, outcomeBegining); //Сумма
+            dataBase.WriteSumFormulaToRange(2, outcomeBegining, 2, outcomeEnding, 3, outcomeBegining, 14, outcomeBegining); //Сумма
 
             SwitchDataBaseSheet(3);
             //Доходы факт ДЕТАЛЬНО
@@ -409,7 +451,7 @@ namespace DataBase
         } //Поиск строки по дате
         public int FindCategory(string category) //Поиск столбца по категории
         {
-            return categorys.IndexOf(category) + 2;
+            return mainHeadLine.ToList().IndexOf(category) + 3;
         }
 
         //Действия с книгами

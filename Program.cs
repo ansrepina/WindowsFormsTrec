@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 using DataBase;
 
@@ -16,15 +17,27 @@ namespace WindowsFormsTrec
         [STAThread]
         static void Main()
         {
-            TransactionDataBase dataBase = new TransactionDataBase("Test");
+            string accName = "Test";
+            string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); //Путь к документам
+            string filePath = Path.Combine(documentsPath, $"{accName}{DateTime.Today.Year}DataBase.xlsx"); //Путь к файлу
+
+            TransactionDataBase dataBase;
+
+            if (!File.Exists(filePath))
+                dataBase = new TransactionDataBase("Test", 1); //Если файл не существует
+            else 
+                dataBase = new TransactionDataBase("Test"); //Если файл существует
+            //dataBase.OpenFile();
+            //dataBase.CloseFile();
+
             dataBase.OpenFile();
             dataBase.AddNewTransaction(1, "1", DateTime.Today.ToShortDateString(), 1500);
-            dataBase.AddNewTransaction(2, "3", DateTime.Today.ToShortDateString(), 1500);
+            dataBase.AddNewTransaction(2, "6", DateTime.Today.ToShortDateString(), 1500);
             dataBase.AddNewTransaction(1, "4", DateTime.Today.ToShortDateString(), 1500);
-            dataBase.AddNewTransaction(2, "Другое", DateTime.Today.ToShortDateString(), 1500);
+            dataBase.AddNewTransaction(2, "Прочие Р.", DateTime.Today.ToShortDateString(), 1500);
             dataBase.AddNewTransaction(1, "4", DateTime.Today.ToShortDateString(), 1500);
-            //dataBase.CloseFile();
-            string[] categDoh = { "1", "2", "3", "", "ПОСЛЕДНИЙ" };
+            dataBase.Save();
+            dataBase.CloseFile();
 
             //dataBase.OpenFile();
             //dataBase.AddNewCategory("Новая", 1);
