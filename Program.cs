@@ -23,7 +23,8 @@ namespace WindowsFormsTrec
             dataBase.AddNewTransaction(1, "4", DateTime.Today.ToShortDateString(), 1500);
             dataBase.AddNewTransaction(2, "Другое", DateTime.Today.ToShortDateString(), 1500);
             dataBase.AddNewTransaction(1, "4", DateTime.Today.ToShortDateString(), 1500);
-            dataBase.CloseFile();
+            //dataBase.CloseFile();
+            string[] categDoh = { "1", "2", "3", "", "ПОСЛЕДНИЙ" };
 
             //dataBase.OpenFile();
             //dataBase.AddNewCategory("Новая", 1);
