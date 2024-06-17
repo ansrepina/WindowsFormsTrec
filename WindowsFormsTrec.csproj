@@ -35,7 +35,7 @@
   <ItemGroup>
     <Reference Include="MySql.Data, Version=8.4.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector NET 8.4\MySql.Data.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector NET 8.4\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -69,13 +69,19 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlan.Designer.cs">
+      <DependentUpon>FormPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginDataBase.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MySQLDataBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormCategories.resx">
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlan.resx">
+      <DependentUpon>FormPlan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -101,6 +110,14 @@
     </Compile>
     <None Include="Properties\DataSources\DataBase.Excel.datasource" />
     <None Include="Properties\DataSources\DataBase.TransactionDataBase.datasource" />
+    <None Include="Properties\DataSources\FormCategories.datasource" />
+    <None Include="Properties\DataSources\FormDashbord.datasource" />
+    <None Include="Properties\DataSources\FormMain.datasource" />
+    <None Include="Properties\DataSources\FormPlan.datasource" />
+    <None Include="Properties\DataSources\LoginForm.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\WindowsFormsTrec.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\WindowsFormsTrec.Properties.Settings.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

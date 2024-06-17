@@ -32,7 +32,6 @@
             this.buttonHelp = new System.Windows.Forms.Button();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.buttonSetting = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.ButtonCategory = new System.Windows.Forms.Button();
             this.ButtonHome = new System.Windows.Forms.Button();
@@ -40,9 +39,13 @@
             this.TopPanelTitle = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelDesktopPanel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panelMenu.SuspendLayout();
             this.TopPanelTitle.SuspendLayout();
+            this.panelDesktopPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,11 +53,12 @@
             // 
             this.buttonHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.buttonHelp.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonHelp.Location = new System.Drawing.Point(0, 505);
             this.buttonHelp.Name = "buttonHelp";
-            this.buttonHelp.Size = new System.Drawing.Size(202, 32);
+            this.buttonHelp.Size = new System.Drawing.Size(240, 32);
             this.buttonHelp.TabIndex = 0;
-            this.buttonHelp.Text = "ПОМОЩЬ";
+            this.buttonHelp.Text = "Помощь";
             this.buttonHelp.UseVisualStyleBackColor = false;
             this.buttonHelp.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -64,8 +68,7 @@
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.Green;
-            this.panelMenu.Controls.Add(this.buttonSetting);
+            this.panelMenu.BackColor = System.Drawing.Color.SeaShell;
             this.panelMenu.Controls.Add(this.button3);
             this.panelMenu.Controls.Add(this.ButtonCategory);
             this.panelMenu.Controls.Add(this.ButtonHome);
@@ -75,30 +78,18 @@
             this.panelMenu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(202, 537);
+            this.panelMenu.Size = new System.Drawing.Size(240, 537);
             this.panelMenu.TabIndex = 1;
-            // 
-            // buttonSetting
-            // 
-            this.buttonSetting.BackColor = System.Drawing.Color.Transparent;
-            this.buttonSetting.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonSetting.Location = new System.Drawing.Point(0, 207);
-            this.buttonSetting.Name = "buttonSetting";
-            this.buttonSetting.Size = new System.Drawing.Size(202, 51);
-            this.buttonSetting.TabIndex = 5;
-            this.buttonSetting.Text = "Настройки";
-            this.buttonSetting.UseVisualStyleBackColor = false;
-            this.buttonSetting.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Transparent;
             this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.Location = new System.Drawing.Point(0, 159);
+            this.button3.Location = new System.Drawing.Point(0, 153);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(202, 48);
+            this.button3.Size = new System.Drawing.Size(240, 55);
             this.button3.TabIndex = 4;
-            this.button3.Text = "Отчет";
+            this.button3.Text = "Планирование";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -108,9 +99,9 @@
             this.ButtonCategory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ButtonCategory.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.ButtonCategory.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ButtonCategory.Location = new System.Drawing.Point(0, 111);
+            this.ButtonCategory.Location = new System.Drawing.Point(0, 105);
             this.ButtonCategory.Name = "ButtonCategory";
-            this.ButtonCategory.Size = new System.Drawing.Size(202, 48);
+            this.ButtonCategory.Size = new System.Drawing.Size(240, 48);
             this.ButtonCategory.TabIndex = 3;
             this.ButtonCategory.Text = "Транзакции";
             this.ButtonCategory.UseVisualStyleBackColor = false;
@@ -120,9 +111,9 @@
             // 
             this.ButtonHome.BackColor = System.Drawing.Color.Transparent;
             this.ButtonHome.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ButtonHome.Location = new System.Drawing.Point(0, 63);
+            this.ButtonHome.Location = new System.Drawing.Point(0, 57);
             this.ButtonHome.Name = "ButtonHome";
-            this.ButtonHome.Size = new System.Drawing.Size(202, 48);
+            this.ButtonHome.Size = new System.Drawing.Size(240, 48);
             this.ButtonHome.TabIndex = 2;
             this.ButtonHome.Text = "Дашборд";
             this.ButtonHome.UseVisualStyleBackColor = false;
@@ -133,19 +124,19 @@
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanel.Location = new System.Drawing.Point(0, 0);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(202, 63);
+            this.TopPanel.Size = new System.Drawing.Size(240, 57);
             this.TopPanel.TabIndex = 2;
             this.TopPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TopPanel_Paint);
             // 
             // TopPanelTitle
             // 
-            this.TopPanelTitle.BackColor = System.Drawing.Color.White;
+            this.TopPanelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.TopPanelTitle.Controls.Add(this.label1);
             this.TopPanelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanelTitle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.TopPanelTitle.Location = new System.Drawing.Point(202, 0);
+            this.TopPanelTitle.Location = new System.Drawing.Point(240, 0);
             this.TopPanelTitle.Name = "TopPanelTitle";
-            this.TopPanelTitle.Size = new System.Drawing.Size(835, 63);
+            this.TopPanelTitle.Size = new System.Drawing.Size(797, 57);
             this.TopPanelTitle.TabIndex = 2;
             this.TopPanelTitle.Paint += new System.Windows.Forms.PaintEventHandler(this.TopPanelLeft_Paint);
             // 
@@ -165,12 +156,33 @@
             // panelDesktopPanel
             // 
             this.panelDesktopPanel.BackColor = System.Drawing.Color.OldLace;
+            this.panelDesktopPanel.Controls.Add(this.panel1);
             this.panelDesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktopPanel.Location = new System.Drawing.Point(202, 63);
+            this.panelDesktopPanel.Location = new System.Drawing.Point(240, 57);
             this.panelDesktopPanel.Name = "panelDesktopPanel";
-            this.panelDesktopPanel.Size = new System.Drawing.Size(835, 474);
+            this.panelDesktopPanel.Size = new System.Drawing.Size(797, 480);
             this.panelDesktopPanel.TabIndex = 6;
             this.panelDesktopPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktopPanel_Paint);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Location = new System.Drawing.Point(118, 96);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(553, 216);
+            this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Uighur", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(124, 85);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(310, 56);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Трекер Расходов";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // FormMain
             // 
@@ -186,6 +198,9 @@
             this.panelMenu.ResumeLayout(false);
             this.TopPanelTitle.ResumeLayout(false);
             this.TopPanelTitle.PerformLayout();
+            this.panelDesktopPanel.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
@@ -195,7 +210,6 @@
         private System.Windows.Forms.HelpProvider helpProvider1;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel TopPanel;
-        private System.Windows.Forms.Button buttonSetting;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button ButtonCategory;
         protected System.Windows.Forms.Button buttonHelp;
@@ -204,6 +218,8 @@
         private System.Windows.Forms.Button ButtonHome;
         private System.Windows.Forms.Panel panelDesktopPanel;
         private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

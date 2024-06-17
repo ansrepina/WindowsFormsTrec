@@ -15,8 +15,8 @@ namespace DataBase
         Workbook wb; //Текущий документ
         Worksheet ws; //Текущий лист
 
-        public Excel() { }
-        public Excel(string path)
+        public Excel() { } //Для новых файлов
+        public Excel(string path) //Для существующего файла
         {
             this.path = path;
             wb = excel.Workbooks.Open(path);
@@ -40,7 +40,7 @@ namespace DataBase
             this.ws = wb.Worksheets[sheet];
         }
 
-        public void ChangeName(string newName) //Смена имени листа
+        public void ChangeSheetName(string newName) //Смена имени листа
         {
             ws.Name = newName;
         }
@@ -66,7 +66,6 @@ namespace DataBase
             string formula = $"=SUM({ws.Cells[starti, startj].Address}:{ws.Cells[endi, endj].Address})";
             ws.Cells[i, j].Formula = formula;
         }
-
         public void WriteSumFormulaToRange(int startR, int startC, int endR, int endC, int starti, int startj, int endi, int endj) //Cуммы диапазонов в диапазон
         {
             for (int i = startR; i <= endR; i++)
@@ -79,14 +78,38 @@ namespace DataBase
             }
         }
 
+        public void WriteLinkFormula(string listName, int i, int j,int linki, int linkj)
+        {
+            string formula = $"='{listName}'!{ws.Cells[linki, linkj].Address}";
+            ws.Cells[i, j].Formula = formula;
+        }
+        public void WriteLinkFormulaToRange(string listName, int startR, int startC, int endR, int endC, int starti, int startj, int endi, int endj)
+        {
+            for (int i = startR; i <= endR; i++)
+            {
+                for (int j = startC; j <= endC; j++)
+                {
+                    WriteLinkFormula(listName, i, j, starti + i - startR, startj + j - startC);
+                }
+            }
+        }
+
         // Чтение
         public string ReadCell(int i, int j) //Чтение из клетки (текст)
         {
-            if (ws.Cells[i,j].Value2 != null)
-                return ReadRange(i,j,i,j)[0,0];
+            if (ws.Cells[i, j].Value2 != null)
+                return ws.Cells[i, j].Value2.ToString();
             return "";
         }
-
+        public string[] ReadLine(int i, int startj, int endj)
+        {
+            string[] values = new string[endj - startj + 1];
+            for (int j = 0; j < endj - startj + 1; j++)
+            {
+                values[j] = ReadCell(i, j + startj);
+            }
+            return values;
+        }
         public string[,] ReadRange(int starti, int startj, int endi, int endj) //Чтение целого диапазона клеток
         {
             var range = ws.Range[ws.Cells[starti, startj], ws.Cells[endi, endj]];
@@ -97,6 +120,20 @@ namespace DataBase
                 for (int j = 0; j < values.GetLength(1); j++)
                 {
                     values[i, j] = rangeValues[i+1, j+1] != null? rangeValues[i+1, j+1].ToString() : "";
+                }
+            }
+            return values;
+        }
+        public double[,] ReadDoubleRange(int starti, int startj, int endi, int endj) //Чтение целого диапазона клеток с ЧИСЛАМИ!!!
+        {
+            var range = ws.Range[ws.Cells[starti, startj], ws.Cells[endi, endj]];
+            object[,] rangeValues = range.Value2;
+            double[,] values = new double[rangeValues.GetLength(0), rangeValues.GetLength(1)];
+            for (int i = 0; i < values.GetLength(0); i++)
+            {
+                for (int j = 0; j < values.GetLength(1); j++)
+                {
+                    values[i, j] = rangeValues[i + 1, j + 1] != null ? double.Parse(rangeValues[i + 1, j + 1].ToString()) : 0;
                 }
             }
             return values;
@@ -115,6 +152,18 @@ namespace DataBase
         }
 
         //Редактирование
+        public void AddToCell(int i, int j, double value)
+        {
+            double cellValue = 0;
+            string stringCellValue = ReadCell(i, j);
+            if (stringCellValue != "")
+            {
+                cellValue = double.Parse(stringCellValue);
+                cellValue += value;
+                WriteToCell(i, j, cellValue.ToString());
+            }
+        }
+
         public void MoveRange(int starti, int startj, int endi, int endj, int newStarti, int newStartj) //Сдвиг диапазона
         {
             int newEndi = newStarti + endi - starti;

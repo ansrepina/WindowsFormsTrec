@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataBase;
 
 namespace WindowsFormsTrec
 {
@@ -49,7 +50,11 @@ namespace WindowsFormsTrec
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-
+           // OpenClassForm(new FormMain(), sender);
+            FormMain form2 = new FormMain();
+            form2.Tag = this;
+            form2.Show(this);
+            Hide();
         }
 
         private void registerButton_Click(object sender, EventArgs e)
@@ -57,7 +62,11 @@ namespace WindowsFormsTrec
 
         }
 
+<<<<<<< HEAD
         private void LoginForm_Load(object sender, EventArgs e)
+=======
+        private void panel2_Paint(object sender, PaintEventArgs e)
+>>>>>>> d2f5429be9086ac82128739ea0464b7e345370f7
         {
 
         }
