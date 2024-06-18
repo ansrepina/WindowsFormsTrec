@@ -14,6 +14,7 @@ namespace WindowsFormsTrec
 {
     public partial class FormMain : Form
     {
+        public string accName {  get; set; }
         //TransactionDataBase dataBase = new TransactionDataBase("Test2");
         private Button currentButton;
         private Form activeForm;
