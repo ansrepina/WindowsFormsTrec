@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataBase;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,27 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DataBase;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsTrec
 {
-    public partial class FormAdd : Form
+    public partial class FormAdd2 : Form
     {
         public string accName { get; set; }
-        public FormAdd()
+        public FormAdd2()
         {
             InitializeComponent();
-        }
-
-        private void FormAdd_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -35,18 +24,22 @@ namespace WindowsFormsTrec
             TransactionDataBase dataBase = new TransactionDataBase(accName);
             dataBase.OpenFile();
             string name = textBox1.Text;
-            int option = 2;
+            int option = 1;
             dataBase.AddNewCategory(name, option);
             dataBase.SaveAndExit();
             MessageBox.Show("Категория добавлена!");
             textBox1.Clear();
- 
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Hide();
+            Hide();        
         }
 
+        private void FormAdd2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

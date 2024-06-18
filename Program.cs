@@ -17,15 +17,15 @@ namespace WindowsFormsTrec
         [STAThread]
         static void Main()
         {
-            //TransactionDataBase dataBase = new TransactionDataBase("Test");
+           // TransactionDataBase dataBase = new TransactionDataBase("Test");
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new LoginForm());
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+          //  Application.Run(new LoginForm());
 
-            //string accName = "Test";
+            string accName = "Test";
             //string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); //Путь к документам
             //string filePath = Path.Combine(documentsPath, $"{accName}{DateTime.Today.Year}DataBase.xlsx"); //Путь к файлу
 
@@ -37,30 +37,32 @@ namespace WindowsFormsTrec
             //    dataBase = new TransactionDataBase("Test"); //Если файл существует
 
             //dataBase.OpenFile();
-            //dataBase.CloseFile();
+           // dataBase.CloseFile();
 
-            dataBase.OpenFile();
+           // dataBase.OpenFile();
            /* dataBase.AddNewTransaction(1, "1", DateTime.Today.ToShortDateString(), 1500);
             dataBase.AddNewTransaction(2, "6", DateTime.Today.ToShortDateString(), 1500);
             dataBase.AddNewTransaction(1, "4", DateTime.Today.ToShortDateString(), 1500);
             dataBase.AddNewTransaction(2, "Прочие Р.", DateTime.Today.ToShortDateString(), 1500);
             dataBase.AddNewTransaction(1, "4", DateTime.Today.ToShortDateString(), 1500);*/
-            dataBase.Save();
-            dataBase.CloseFile();
+           // dataBase.Save();
+           // dataBase.CloseFile();
 
             //dataBase.OpenFile();
             //dataBase.AddNewCategory("Новая", 1);
             //dataBase.AddNewCategory("Последняя", 2);
             //dataBase.AddNewCategory("НЕПоследняя)", 2);
-            //dataBase.SaveAndExit();
+           // dataBase.SaveAndExit();
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+           // Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
             //  Application.Run(new LoginForm());
             //  TransactionDataBase dataBase = new TransactionDataBase("Test");
             //  Application.EnableVisualStyles();
             //  Application.SetCompatibleTextRenderingDefault(false);
-             Application.Run(new FormMain());
+            FormMain formMain = new FormMain();
+            formMain.accName = accName;
+             Application.Run(formMain);
         }
     }
 }

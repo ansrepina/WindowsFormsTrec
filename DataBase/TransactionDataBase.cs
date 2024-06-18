@@ -18,8 +18,10 @@ namespace DataBase
         private int outcomeBegining;
         private int outcomeEnding;
         private string[] mainHeadLine;
-        //public string[] IncomeCategories { get => mainHeadLine.Split[]; }
+        public string[] IncomeCategories { get => new ArraySegment<string>(mainHeadLine, incomeBegining - 1, incomeEnding - incomeBegining).ToArray(); }
+        public string[] OutcomeCategories { get => new ArraySegment<string>(mainHeadLine, outcomeBegining - 1, outcomeEnding - outcomeBegining).ToArray(); }
         private int newAdd;
+
         public TransactionDataBase(string accName)
         {
             this.accName = accName;
@@ -57,10 +59,10 @@ namespace DataBase
             outcomeBegining = 9;
             outcomeEnding = 14;
             newAdd = 2;
-            mainHeadLine = new string[] { "Доходы", "Продукты", "2", "3", "4", "Прочие Д.", "", "Расходы", "5", "6", "7", "8", "Прочие Р." };
+            mainHeadLine = new string[] { "Доходы", "Зарплата", "Стипендия", "Подарки", "Кэшбэк", "Прочие Д.", "", "Расходы", "Транспорт", "Одежда и обувь", "Медицина", "Продукты", "Прочие Р." };
             CreateDataBase();
         }
-        
+            
         public void CreateDataBase() //Втавить в процесс создания аккаунта
         {
             dataBase = new Excel();

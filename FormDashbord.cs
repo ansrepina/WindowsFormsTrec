@@ -14,6 +14,7 @@ namespace WindowsFormsTrec
 {
     public partial class FormDashbord : Form  //, TransactionDataBase
     {
+        public string accName { get; set; }
         public FormDashbord()
         {
             InitializeComponent();
@@ -65,10 +66,6 @@ namespace WindowsFormsTrec
 
         }
 
-        private void table_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
         private void label3_Click(object sender, EventArgs e)
@@ -110,17 +107,9 @@ namespace WindowsFormsTrec
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-           
-      
-        }
-
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void button2_Click(object sender, EventArgs e) //, TransactionDataBase dataBase)
-        {
-            //dataBase.OpenFile();
+            string start = dateTimePickerStart.Value.ToString(); //стартовое значение
+            string end = dateTimePickerEnd.Value.ToString(); //конечное значение
+                                                             //dataBase.OpenFile();
 
             chartRealFactIncome.Series[0].XValueMember = "план";
             chartRealFactIncome.Series[0].YValueMembers = "план";
@@ -130,6 +119,17 @@ namespace WindowsFormsTrec
 
             //  chartRealFactIncome.DataSource = database
             chartRealFactIncome.DataBind();
+
+
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void button2_Click(object sender, EventArgs e) //, TransactionDataBase dataBase)
+        {
+           
         }
 
         

@@ -14,6 +14,7 @@ namespace WindowsFormsTrec
 {
     public partial class FormCategories : Form
     {
+        public string accName { get; set; }
         public FormCategories()
         {
             InitializeComponent();
@@ -21,24 +22,16 @@ namespace WindowsFormsTrec
        // TransactionDataBase dataBase = new TransactionDataBase("Test2");
         private void FormCategories_Load(object sender, EventArgs e)
         {
-            comboBox1.Items.Add("Продукты");
-            comboBox1.Items.Add("Транспорт");
-            comboBox1.Items.Add("Одежда и обувь");
-            comboBox1.Items.Add("Прочие P.");
+            TransactionDataBase dataBase = new TransactionDataBase(accName);
+         
+            comboBox1.Items.AddRange(dataBase.OutcomeCategories);
             comboBox1.Items.Add("Новая категория");
+          
+            comboBox2.Items.AddRange(dataBase.IncomeCategories);
+            comboBox2.Items.Add("Новая категория");
 
-            comboBox2.Items.Add("Зарплата");
-            comboBox2.Items.Add("Транспорт");
-            comboBox2.Items.Add("Одежда и обувь");
-            comboBox2.Items.Add("Прочие Д.");
-            comboBox2.Items.Add("Другое");
-
-            /*string[] aboba = { "hfpd", "asd", "bang", "New" };
-            comboBox1.Items.AddRange(aboba);
-
-            string[] aboba2 = { "hfpd", "asd", "bang", "New" };
-            comboBox2.Items.AddRange(aboba2);*/
-
+            maskedTextBox3.Text = $"    {DateTime.Today.Year}";
+            maskedTextBox1.Text = $"    {DateTime.Today.Year}";
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -50,28 +43,14 @@ namespace WindowsFormsTrec
 
             try
             {
-                TransactionDataBase dataBase = new TransactionDataBase("Test");
+                TransactionDataBase dataBase = new TransactionDataBase(accName);
                 dataBase.OpenFile();
                 int type = 2; //списание средств
                 string date = maskedTextBox3.Text.ToString();
                 double value = double.Parse(textBox1.Text);
-                if (comboBox1.Text == "Продукты") 
-                { 
-                    string category = "5";
-                    dataBase.AddNewTransaction(type, category, date, value); //  вызов метода
-
-                }
-                else if (comboBox1.Text == "Прочие P.")
-                {
-                    string category = comboBox1.Text;
-                    dataBase.AddNewTransaction(type, category, date, value); //  вызов метода
-                }
-              //  string category = comboBox1.Text.ToString(); //изменить, чтобы категория записывалась под цифру 1
-                
-
-                //dataBase.AddNewTransaction(type, category, date, value); //  вызов метода
-                dataBase.Save();
-                dataBase.CloseFile();
+                string category = comboBox1.Text;
+                dataBase.AddNewTransaction(type, category, date, value); 
+                dataBase.SaveAndExit();
                 MessageBox.Show("Данные успешно добавлены!");
 
                 comboBox1.SelectedIndex = 0;
@@ -94,16 +73,15 @@ namespace WindowsFormsTrec
         {
             try
             {
-                TransactionDataBase dataBase = new TransactionDataBase("Test");
+                TransactionDataBase dataBase = new TransactionDataBase(accName);
                 dataBase.OpenFile();
                 int type = 1; //доходы
-                string category = "2"; // comboBox2.Text.ToString(); //изменить, чтобы категория записывалась под цифру 1
                 string date = maskedTextBox1.Text.ToString();
                 double value = double.Parse(textBox2.Text);
-
-                dataBase.AddNewTransaction(type, category, date, value); //  вызов метода
-                dataBase.Save();
-                dataBase.CloseFile();
+                string category = comboBox2.Text;
+                
+                dataBase.AddNewTransaction(type, category, date, value);
+                dataBase.SaveAndExit();
                 MessageBox.Show("Данные успешно добавлены!");
 
                 comboBox2.SelectedIndex = 0;
@@ -131,19 +109,9 @@ namespace WindowsFormsTrec
         {
 
         }
-        /*private void comboBox1_Loaded(object sender, EventArgs e)
-        {
-            string[] aboba = { "hfpd", "asd", "bang" };
-            FormCategories.comboBox1.Items.AddRange(aboba);
-        }
-        private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
-        {
 
-        }*/
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*string[] aboba = { "hfpd", "asd", "bang" };
-            FormCategories.comboBox1.Items.AddRange(aboba);*/
 
         }
 
@@ -153,7 +121,7 @@ namespace WindowsFormsTrec
             {
 
                    // dataBase.AddNewCategory
-                    FormMain form2 = new FormMain();
+                    FormAdd form2 = new FormAdd();
                     form2.Tag = this;
                     form2.Show(this);
                     Hide();
@@ -188,6 +156,16 @@ namespace WindowsFormsTrec
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void checkBox2_Click(object sender, EventArgs e)
         {
 
         }

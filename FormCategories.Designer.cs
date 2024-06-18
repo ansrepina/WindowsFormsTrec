@@ -43,22 +43,24 @@
             this.label5 = new System.Windows.Forms.Label();
             this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.programBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.programBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.programBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.programBindingSource1)).BeginInit();
+            this.programBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.programBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.programBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.programBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button1.Location = new System.Drawing.Point(223, 280);
+            this.button1.Location = new System.Drawing.Point(223, 319);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(62, 32);
             this.button1.TabIndex = 0;
@@ -69,7 +71,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button2.Location = new System.Drawing.Point(616, 280);
+            this.button2.Location = new System.Drawing.Point(625, 319);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(62, 32);
             this.button2.TabIndex = 1;
@@ -98,10 +100,11 @@
             // comboBox1
             // 
             this.comboBox1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(92, 165);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(193, 24);
+            this.comboBox1.Size = new System.Drawing.Size(227, 33);
             this.comboBox1.TabIndex = 32;
             this.comboBox1.UseWaitCursor = true;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -132,10 +135,11 @@
             // comboBox2
             // 
             this.comboBox2.DisplayMember = "щ";
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(477, 165);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(201, 24);
+            this.comboBox2.Size = new System.Drawing.Size(224, 33);
             this.comboBox2.TabIndex = 40;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -143,7 +147,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(572, 210);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(106, 22);
+            this.textBox2.Size = new System.Drawing.Size(129, 22);
             this.textBox2.TabIndex = 38;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -172,7 +176,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(17, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(162, 45);
+            this.label5.Size = new System.Drawing.Size(158, 43);
             this.label5.TabIndex = 41;
             this.label5.Text = "Расходы";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -180,20 +184,22 @@
             // maskedTextBox3
             // 
             this.maskedTextBox3.AccessibleRole = System.Windows.Forms.AccessibleRole.Cursor;
+            this.maskedTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.maskedTextBox3.Location = new System.Drawing.Point(179, 238);
             this.maskedTextBox3.Mask = "00/00/0000";
             this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(106, 22);
+            this.maskedTextBox3.Size = new System.Drawing.Size(140, 28);
             this.maskedTextBox3.TabIndex = 42;
             this.maskedTextBox3.ValidatingType = typeof(System.DateTime);
             this.maskedTextBox3.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox3_MaskInputRejected);
             // 
             // maskedTextBox1
             // 
+            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.maskedTextBox1.Location = new System.Drawing.Point(572, 238);
             this.maskedTextBox1.Mask = "00/00/0000";
             this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(106, 22);
+            this.maskedTextBox1.Size = new System.Drawing.Size(129, 28);
             this.maskedTextBox1.TabIndex = 43;
             this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
             // 
@@ -201,9 +207,9 @@
             // 
             this.textBox1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.textBox1.Location = new System.Drawing.Point(179, 210);
+            this.textBox1.Location = new System.Drawing.Point(179, 207);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(106, 22);
+            this.textBox1.Size = new System.Drawing.Size(140, 22);
             this.textBox1.TabIndex = 44;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
@@ -229,6 +235,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(390, 103);
             this.panel2.TabIndex = 46;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label6
             // 
@@ -240,12 +247,35 @@
             this.label6.TabIndex = 47;
             this.label6.Text = "Выберерите категорию";
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(70, 280);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(249, 20);
+            this.checkBox1.TabIndex = 49;
+            this.checkBox1.Text = "Использовать сегодняшнюю дату";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(452, 280);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(249, 20);
+            this.checkBox2.TabIndex = 50;
+            this.checkBox2.Text = "Использовать сегодняшнюю дату";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.Click += new System.EventHandler(this.checkBox2_Click);
+            // 
             // FormCategories
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -267,12 +297,12 @@
             this.Text = "FormCategories";
             this.Load += new System.EventHandler(this.FormCategories_Load);
             this.ParentChanged += new System.EventHandler(this.FormCategories_ParentChanged);
-            ((System.ComponentModel.ISupportInitialize)(this.programBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.programBindingSource1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.programBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.programBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,5 +330,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }

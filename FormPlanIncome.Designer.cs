@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace WindowsFormsTrec
+﻿namespace WindowsFormsTrec
 {
-    partial class FormPlan
+    partial class FormPlanIncome
     {
         /// <summary>
         /// Required designer variable.
@@ -58,10 +56,10 @@ namespace WindowsFormsTrec
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(24, 25);
+            this.panel1.Location = new System.Drawing.Point(28, 23);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(745, 404);
-            this.panel1.TabIndex = 0;
+            this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel3
@@ -76,7 +74,6 @@ namespace WindowsFormsTrec
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(745, 124);
             this.panel3.TabIndex = 61;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // label3
             // 
@@ -94,10 +91,9 @@ namespace WindowsFormsTrec
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.Location = new System.Drawing.Point(3, 14);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(434, 42);
+            this.label6.Size = new System.Drawing.Size(406, 42);
             this.label6.TabIndex = 29;
-            this.label6.Text = "Планируемые расходы ";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.label6.Text = "Планируемые доходы";
             // 
             // label11
             // 
@@ -130,7 +126,6 @@ namespace WindowsFormsTrec
             this.button1.TabIndex = 48;
             this.button1.Text = "ок";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox2
             // 
@@ -152,7 +147,6 @@ namespace WindowsFormsTrec
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(145, 24);
             this.comboBox2.TabIndex = 35;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // maskedTextBox4
             // 
@@ -162,7 +156,6 @@ namespace WindowsFormsTrec
             this.maskedTextBox4.Size = new System.Drawing.Size(145, 22);
             this.maskedTextBox4.TabIndex = 34;
             this.maskedTextBox4.ValidatingType = typeof(int);
-            this.maskedTextBox4.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox4_MaskInputRejected);
             // 
             // label10
             // 
@@ -190,17 +183,14 @@ namespace WindowsFormsTrec
             this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 26;
             // 
-            // FormPlan
+            // FormPlanIncome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
-            this.Name = "FormPlan";
-            this.Text = "FormPlan";
-            this.Load += new System.EventHandler(this.FormPlan_Load);
+            this.Name = "FormPlanIncome";
+            this.Text = "FormPlanIncome";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -209,29 +199,19 @@ namespace WindowsFormsTrec
 
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox4;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox4;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

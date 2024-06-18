@@ -14,7 +14,7 @@ namespace WindowsFormsTrec
 {
     public partial class FormMain : Form
     {
-        //TransactionDataBase dataBase = new TransactionDataBase("Test2");
+        public string accName { get; set; }
         private Button currentButton;
         private Form activeForm;
         private const string helpfile = "help.chm";
@@ -44,11 +44,6 @@ namespace WindowsFormsTrec
         private void ActivateButton(object btnSender)
         {
 
-            /*if (btnSender != null)
-            {
-                currentButton = (Button)btnSender;
-                
-            }*/
             if (btnSender != null)
             { 
                 currentButton = (Button)btnSender;
@@ -57,32 +52,16 @@ namespace WindowsFormsTrec
             {
                 if (currentButton != (Button)btnSender)
                 {
-                 //  DisableButton();
                     Color color = Color.FromArgb(87, 150, 78);
                     currentButton = (Button)btnSender;
                     currentButton.BackColor = color;
                     currentButton.ForeColor = Color.White;
                     currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     TopPanel.BackColor = color;
-                   // panel1.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
-                   // ThemeColor.PrimaryColor = color;
-                    //ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(color, -0.3);
-                  //  btnCloseChildForm.Visible = true;
+                   
                 }
             }
         }
-        /*private Color SelectThemeColor()
-        {
-            int index = random.Next(ThemeColor.ColorList.Count);
-            while (tempIndex == index)
-            {
-                index = random.Next(ThemeColor.ColorList.Count);
-            }
-            tempIndex = index;
-            string color = ThemeColor.ColorList[index];
-            return ColorTranslator.FromHtml(color);
-        }*/
-
 
         private void OpenClassForm(Form childForm, object btnSender)
         {
@@ -109,7 +88,6 @@ namespace WindowsFormsTrec
 
         {
             DisableButton();
-            TopPanel.Text = "HOME";
             TopPanel.BackColor = Color.FromArgb(0, 150, 136);
             panel1.BackColor = Color.FromArgb(39, 39, 58);
             currentButton = null;
@@ -134,13 +112,17 @@ namespace WindowsFormsTrec
 
         private void button2_Click_2(object sender, EventArgs e) 
         {
-            OpenClassForm(new FormDashbord(), sender);
+            FormDashbord da = new FormDashbord();
+            da.accName = accName;
+            OpenClassForm(da, sender);
 
         }
 
         private void button2_Click_3(object sender, EventArgs e)
         {
-            OpenClassForm(new FormCategories(), sender);
+            FormCategories categories = new FormCategories();
+            categories.accName = accName;
+            OpenClassForm(categories, sender);
         }
 
         private void TopPanelLeft_Paint(object sender, PaintEventArgs e)
@@ -155,7 +137,10 @@ namespace WindowsFormsTrec
 
         private void button3_Click(object sender, EventArgs e)
         {
-            OpenClassForm(new FormPlan(), sender);
+
+            FormPlan plan = new FormPlan();
+            plan.accName = accName;
+            OpenClassForm(plan, sender);
         }
 
         private void panelDesktopPanel_Paint(object sender, PaintEventArgs e)
@@ -171,6 +156,18 @@ namespace WindowsFormsTrec
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void panelMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            FormPlanIncome plan = new FormPlanIncome();
+            plan.accName = accName;
+            OpenClassForm(plan, sender);
         }
     }
 }
