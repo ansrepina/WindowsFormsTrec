@@ -34,12 +34,10 @@ namespace DataBase
         {
             Worksheet temptSheet = wb.Worksheets.Add(After: ws);
         }
-
         public void SwitchWorkSheet(int sheet) //Переключение на лист по номеру
         {
             this.ws = wb.Worksheets[sheet];
         }
-
         public void ChangeSheetName(string newName) //Смена имени листа
         {
             ws.Name = newName;
@@ -49,7 +47,6 @@ namespace DataBase
         {
             wb.Save();
         }
-
         public void SaveAs(string path) //Сохранить как
         {
             wb.SaveAs(path);
@@ -59,6 +56,7 @@ namespace DataBase
         {
             wb.Close();
         }
+
 
         // Формулы
         public void WriteSumFormula(int i, int j, int starti, int startj, int endi, int endj) //Сумма диапазона в ячейку
@@ -78,12 +76,12 @@ namespace DataBase
             }
         }
 
-        public void WriteLinkFormula(string listName, int i, int j,int linki, int linkj)
+        public void WriteLinkFormula(string listName, int i, int j,int linki, int linkj) //Запись ссылки в ячейку
         {
             string formula = $"='{listName}'!{ws.Cells[linki, linkj].Address}";
             ws.Cells[i, j].Formula = formula;
         }
-        public void WriteLinkFormulaToRange(string listName, int startR, int startC, int endR, int endC, int starti, int startj, int endi, int endj)
+        public void WriteLinkFormulaToRange(string listName, int startR, int startC, int endR, int endC, int starti, int startj, int endi, int endj) //Запись ссылки в диапазон
         {
             for (int i = startR; i <= endR; i++)
             {
@@ -93,6 +91,7 @@ namespace DataBase
                 }
             }
         }
+
 
         // Чтение
         public string ReadCell(int i, int j) //Чтение из клетки (текст)
@@ -144,15 +143,15 @@ namespace DataBase
         {
             ws.Cells[i, j].Value2 = str;
         }
-
         public void WriteRange(int starti, int startj, int endi, int endj, string[,] data) //Запись массива в диапазон клеток
         {
             var range = ws.Range[ws.Cells[starti, startj], ws.Cells[endi, endj]];
             range.Value2 = data;
         }
 
+
         //Редактирование
-        public void AddToCell(int i, int j, double value)
+        public void AddToCell(int i, int j, double value) //Увеличить значение ячейки на величину value
         {
             double cellValue = 0;
             string stringCellValue = ReadCell(i, j);
@@ -163,13 +162,11 @@ namespace DataBase
                 WriteToCell(i, j, cellValue.ToString());
             }
         }
-
-        public void MoveCell(int i, int j, int newi, int newj)
+        public void MoveCell(int i, int j, int newi, int newj) //Сдвиг одной клетки
         {
             WriteToCell(newi, newj, ReadCell(i, j));
             WriteToCell(i, j, "");
         }
-
         public void MoveRange(int starti, int startj, int endi, int endj, int newStarti, int newStartj) //Сдвиг диапазона
         {
             int newEndi = newStarti + endi - starti;
@@ -178,7 +175,6 @@ namespace DataBase
             ClearRange(starti, startj, endi, endj);
             WriteRange(newStarti, newStartj, newEndi, newEndj, str);
         }
-
         public void FillRange(int starti, int startj, int endi, int endj, string str) //Заполнение всех клеток
         {
             string[,] Filler = new string[endi - starti + 1, endj - startj + 1];
@@ -191,7 +187,6 @@ namespace DataBase
             }
             WriteRange(starti, startj, endi, endj, Filler);
         }
-
         public void ClearRange(int starti, int startj, int endi, int endj) //Очистка диапазона
         {
             FillRange(starti, startj, endi, endj, "");

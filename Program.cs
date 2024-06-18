@@ -17,6 +17,7 @@ namespace WindowsFormsTrec
         [STAThread]
         static void Main()
         {
+<<<<<<< HEAD
            // TransactionDataBase dataBase = new TransactionDataBase("Test");
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
@@ -28,9 +29,23 @@ namespace WindowsFormsTrec
             string accName = "Test";
             //string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); //Путь к документам
             //string filePath = Path.Combine(documentsPath, $"{accName}{DateTime.Today.Year}DataBase.xlsx"); //Путь к файлу
+=======
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new LoginFormNew());
+            string accName = "Test";
+            string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string filePath = Path.Combine(documentsPath, $"{accName}{DateTime.Today.Year}DataBase.xlsx");
 
-            //TransactionDataBase dataBase;
+            TransactionDataBase dataBase;
+>>>>>>> d604019c590a968e837338fc4dc087a991d82b0e
 
+            if (!File.Exists(filePath))
+                dataBase = new TransactionDataBase(accName, 1); //Если файл не существует
+            else
+                dataBase = new TransactionDataBase(accName); //Если файл существует
+
+<<<<<<< HEAD
             //if (!File.Exists(filePath))
             //    dataBase = new TransactionDataBase("Test", 1); //Если файл не существует
             //else 
@@ -63,6 +78,13 @@ namespace WindowsFormsTrec
             FormMain formMain = new FormMain();
             formMain.accName = accName;
              Application.Run(formMain);
+=======
+            dataBase.OpenFile();
+            //double[,] lineDiag1 = dataBase.incomePlanFactDiagramData();
+            //double[,] lineDiag2 = dataBase.outcomePlanFactDiagramData();
+            //object[,] circDiag = dataBase.rangeCircleDiagramData("01.05.2024", "30.06.2024");
+            dataBase.CloseFile();
+>>>>>>> d604019c590a968e837338fc4dc087a991d82b0e
         }
     }
 }

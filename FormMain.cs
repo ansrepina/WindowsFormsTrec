@@ -15,6 +15,7 @@ namespace WindowsFormsTrec
     public partial class FormMain : Form
     {
         public string accName { get; set; }
+
         private Button currentButton;
         private Form activeForm;
         private const string helpfile = "help.chm";

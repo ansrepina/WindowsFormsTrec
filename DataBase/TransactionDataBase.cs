@@ -18,11 +18,12 @@ namespace DataBase
         private int outcomeBegining;
         private int outcomeEnding;
         private string[] mainHeadLine;
+        private int newAdd;
         public string[] IncomeCategories { get => new ArraySegment<string>(mainHeadLine, incomeBegining - 1, incomeEnding - incomeBegining).ToArray(); }
         public string[] OutcomeCategories { get => new ArraySegment<string>(mainHeadLine, outcomeBegining - 1, outcomeEnding - outcomeBegining).ToArray(); }
-        private int newAdd;
 
-        public TransactionDataBase(string accName)
+        //Конструкторы
+        public TransactionDataBase(string accName) //Конструктоор для работы со старой базой данных
         {
             this.accName = accName;
             OpenFile();
@@ -62,7 +63,9 @@ namespace DataBase
             mainHeadLine = new string[] { "Доходы", "Зарплата", "Стипендия", "Подарки", "Кэшбэк", "Прочие Д.", "", "Расходы", "Транспорт", "Одежда и обувь", "Медицина", "Продукты", "Прочие Р." };
             CreateDataBase();
         }
-            
+
+        
+        //Обязательные функции для работы с excel и пара нужных только мне
         public void CreateDataBase() //Втавить в процесс создания аккаунта
         {
             dataBase = new Excel();
@@ -97,10 +100,66 @@ namespace DataBase
             CloseFile();
         }
 
+
         //Данные для диаграмм
-        public double[,] ReadDoubleRange(int starti, int startj, int endi, int endj)
+        public double[,] IncomePlanFactDiagramData() //Данные для диаграммы план/факт по месяцам
         {
-            return dataBase.ReadDoubleRange(starti, startj, endi, endj);
+            SwitchDataBaseSheet(1);
+            double[,] plan = dataBase.ReadDoubleRange(3, incomeBegining, 14, incomeBegining);
+
+            SwitchDataBaseSheet(2);
+            double[,] fact = dataBase.ReadDoubleRange(3, incomeBegining, 14, incomeBegining);
+
+            double[,] diagramPlanFactData = new double[2, 12];
+
+            for (int i = 0; i < diagramPlanFactData.GetLength(1); i++)
+            {
+                diagramPlanFactData[0, i] = plan[i, 0];
+            }
+
+            for (int i = 0; i < diagramPlanFactData.GetLength(1); i++)
+            {
+                diagramPlanFactData[1, i] = fact[i, 0];
+            }
+
+            return diagramPlanFactData;
+        }
+        public double[,] OutcomePlanFactDiagramData() //Данные для диаграммы план/факт по расходам
+        {
+            SwitchDataBaseSheet(1);
+            double[,] plan = dataBase.ReadDoubleRange(3, outcomeBegining, 14, outcomeBegining);
+
+            SwitchDataBaseSheet(2);
+            double[,] fact = dataBase.ReadDoubleRange(3, outcomeBegining, 14, outcomeBegining);
+
+            double[,] diagramPlanFactData = new double[2, 12];
+
+            for (int i = 0; i < diagramPlanFactData.GetLength(1); i++)
+            {
+                diagramPlanFactData[0, i] = plan[i, 0];
+            }
+
+            for (int i = 0; i < diagramPlanFactData.GetLength(1); i++)
+            {
+                diagramPlanFactData[1, i] = fact[i, 0];
+            }
+
+            return diagramPlanFactData;
+        }
+        public object[,] rangeCircleDiagramData(string date1, string date2) //Данные для круговой диаграммы, расходы по 
+        {
+            object[,] circleDiagramData = new object[2, outcomeEnding - outcomeBegining];
+
+            for (int i = 0; i < circleDiagramData.GetLength(1); i++)
+            {
+                circleDiagramData[0, i] = IncomeCategories[i];
+            }
+
+            for (int i = 0; i < circleDiagramData.GetLength(1); i++)
+            {
+                circleDiagramData[1, i] = SumColumnByDates(date1, date2, outcomeBegining + i + 1);
+            }
+            return circleDiagramData;
         }
 
 
@@ -139,6 +198,10 @@ namespace DataBase
             }
             newAdd++;
         } //Добавление новой операции доходов/расходов - 1/2
+        public void EditPlan(string month, string category, double value) //Редактирование плана на месяц
+        {
+            dataBase.WriteToCell(FindMonth(month) + 2, FindCategory(category), value.ToString());
+        }
 
 
         //Действия с БД
@@ -217,8 +280,8 @@ namespace DataBase
             //Новый список
 
             SwitchDataBaseSheet(1);
-            dataBase.MoveRange(1, outcomeEnding, 13, outcomeEnding, 1, outcomeEnding + 1);
-            dataBase.FillRange(2, outcomeEnding, 13, outcomeEnding, "0");
+            dataBase.MoveRange(1, outcomeEnding, 14, outcomeEnding, 1, outcomeEnding + 1);
+            dataBase.FillRange(2, outcomeEnding, 14, outcomeEnding, "0");
             dataBase.WriteToCell(1, outcomeEnding, name);
             //Первый лист
 
@@ -247,6 +310,28 @@ namespace DataBase
 
             GlobalSumCalculator();
             //Пересчёт гдобальных сумм
+        }
+
+        public double SumColumnByDates(string date1, string date2, int column)
+        {
+            SwitchDataBaseSheet(3);
+            double[,] values = dataBase.ReadDoubleRange(FindDate(date1), column, FindDate(date2), column);
+            double sum = 0;
+            for (int i = 0; i < values.GetLength(0); i++)
+            {
+                for (int j = 0; j < values.GetLength(1); j++)
+                {
+                    sum += values[i, j];
+                }
+            }
+            foreach (int item in new int[]{ 2, 34, 64, 96, 127, 159, 190, 222, 254, 285, 317, 348 })
+            {
+                if (item > FindDate(date1) && item < FindDate(date2))
+                {
+                    sum -= double.Parse(dataBase.ReadCell(item, column));
+                }
+            }
+            return sum;
         }
 
         public void Blank() //Автозаполнение базы данных (только для первого входа в году)
@@ -429,6 +514,7 @@ namespace DataBase
             dataBase.WriteLinkFormulaToRange("Факт (детально)", 14, outcomeBegining, 14, outcomeEnding, 348, outcomeBegining, 348, outcomeEnding);  //12
         }
 
+
         //Поиск
         public int FindDate(string date)
         {
@@ -489,9 +575,65 @@ namespace DataBase
         {
             return mainHeadLine.ToList().IndexOf(category) + 2;
         }
+        public int FindMonth(string month) //Поиск месяца
+        {
+            switch (month)
+            {
+                case "Январь":
+                {
+                    return 1;
+                }
+                case "Февраль":
+                {
+                    return 2;
+                }
+                case "Март":
+                {
+                    return 3;
+                }
+                case "Апрель":
+                {
+                    return 4;
+                }
+                case "Май":
+                {
+                    return 5;
+                }
+                case "Июнь":
+                {
+                    return 6;
+                }
+                case "Июль":
+                {
+                    return 7;
+                }
+                case "Август":
+                {
+                    return 8;
+                }
+                case "Сентябрь":
+                {
+                    return 9;
+                }
+                case "Октябрь":
+                {
+                    return 10;
+                }
+                case "Ноябрь":
+                {
+                    return 11;
+                }
+                default:
+                {
+                    return 12;
+                }
+            }
+        }
+
 
         //Действия с книгами
         public void DeleteDataBase() { }
+
 
         //Действия с листами
         public void SwitchDataBaseSheet(int sheet) //Переключение текущего листа
