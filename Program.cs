@@ -23,7 +23,7 @@ namespace WindowsFormsTrec
             //Application.Run(new LoginForm());
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Application.Run(new LoginFormNew());
 
             //string accName = "Test";
             //string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); //Путь к документам
