@@ -17,16 +17,25 @@ namespace WindowsFormsTrec
         [STAThread]
         static void Main()
         {
-            string accName = "Test";
-            string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); //Путь к документам
-            string filePath = Path.Combine(documentsPath, $"{accName}{DateTime.Today.Year}DataBase.xlsx"); //Путь к файлу
+            //TransactionDataBase dataBase = new TransactionDataBase("Test");
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new LoginForm());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new LoginForm());
 
-            TransactionDataBase dataBase;
+            //string accName = "Test";
+            //string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); //Путь к документам
+            //string filePath = Path.Combine(documentsPath, $"{accName}{DateTime.Today.Year}DataBase.xlsx"); //Путь к файлу
 
-            if (!File.Exists(filePath))
-                dataBase = new TransactionDataBase("Test", 1); //Если файл не существует
-            else 
-                dataBase = new TransactionDataBase("Test"); //Если файл существует
+            //TransactionDataBase dataBase;
+
+            //if (!File.Exists(filePath))
+            //    dataBase = new TransactionDataBase("Test", 1); //Если файл не существует
+            //else 
+            //    dataBase = new TransactionDataBase("Test"); //Если файл существует
+
             //dataBase.OpenFile();
             //dataBase.CloseFile();
 
@@ -43,7 +52,7 @@ namespace WindowsFormsTrec
             //dataBase.AddNewCategory("Новая", 1);
             //dataBase.AddNewCategory("Последняя", 2);
             //dataBase.AddNewCategory("НЕПоследняя)", 2);
-            //dataBase.CloseFile();
+            //dataBase.SaveAndExit();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
