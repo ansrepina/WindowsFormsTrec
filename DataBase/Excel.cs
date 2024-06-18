@@ -112,14 +112,14 @@ namespace DataBase
         }
         public string[,] ReadRange(int starti, int startj, int endi, int endj) //Чтение целого диапазона клеток
         {
-            var range = ws.Range[ws.Cells[starti, startj], ws.Cells[endi, endj]];
+            Range range = ws.Range[ws.Cells[starti, startj], ws.Cells[endi, endj]];
             object[,] rangeValues = range.Value2;
             string[,] values = new string[rangeValues.GetLength(0), rangeValues.GetLength(1)];
             for (int i = 0; i < values.GetLength(0); i++)
             {
                 for (int j = 0; j < values.GetLength(1); j++)
                 {
-                    values[i, j] = rangeValues[i+1, j+1] != null? rangeValues[i+1, j+1].ToString() : "";
+                    values[i, j] = rangeValues[i + 1, j + 1] != null ? rangeValues[i + 1, j + 1].ToString() : "";
                 }
             }
             return values;
@@ -162,6 +162,12 @@ namespace DataBase
                 cellValue += value;
                 WriteToCell(i, j, cellValue.ToString());
             }
+        }
+
+        public void MoveCell(int i, int j, int newi, int newj)
+        {
+            WriteToCell(newi, newj, ReadCell(i, j));
+            WriteToCell(i, j, "");
         }
 
         public void MoveRange(int starti, int startj, int endi, int endj, int newStarti, int newStartj) //Сдвиг диапазона
