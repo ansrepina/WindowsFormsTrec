@@ -43,10 +43,10 @@
             this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.loginButton.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 26.2F);
             this.loginButton.ForeColor = System.Drawing.Color.White;
-            this.loginButton.Location = new System.Drawing.Point(352, 329);
+            this.loginButton.Location = new System.Drawing.Point(289, 309);
             this.loginButton.Margin = new System.Windows.Forms.Padding(4);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(138, 57);
+            this.loginButton.Size = new System.Drawing.Size(125, 57);
             this.loginButton.TabIndex = 0;
             this.loginButton.Text = "Войти";
             this.loginButton.UseVisualStyleBackColor = true;
@@ -58,7 +58,7 @@
             this.authorizationLabel.AutoSize = true;
             this.authorizationLabel.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 30F);
             this.authorizationLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.authorizationLabel.Location = new System.Drawing.Point(447, 105);
+            this.authorizationLabel.Location = new System.Drawing.Point(390, 85);
             this.authorizationLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.authorizationLabel.Name = "authorizationLabel";
             this.authorizationLabel.Size = new System.Drawing.Size(235, 60);
@@ -72,7 +72,7 @@
             this.loginLabel.AutoSize = true;
             this.loginLabel.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 26.2F);
             this.loginLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.loginLabel.Location = new System.Drawing.Point(343, 186);
+            this.loginLabel.Location = new System.Drawing.Point(286, 166);
             this.loginLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.loginLabel.Name = "loginLabel";
             this.loginLabel.Size = new System.Drawing.Size(110, 53);
@@ -86,7 +86,7 @@
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 26.2F);
             this.passwordLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.passwordLabel.Location = new System.Drawing.Point(343, 249);
+            this.passwordLabel.Location = new System.Drawing.Point(286, 229);
             this.passwordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(128, 53);
@@ -98,7 +98,7 @@
             // 
             this.passTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.passTextBox.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 18F);
-            this.passTextBox.Location = new System.Drawing.Point(477, 258);
+            this.passTextBox.Location = new System.Drawing.Point(420, 238);
             this.passTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.passTextBox.Name = "passTextBox";
             this.passTextBox.Size = new System.Drawing.Size(294, 44);
@@ -110,7 +110,7 @@
             // 
             this.loginTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.loginTextBox.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginTextBox.Location = new System.Drawing.Point(477, 195);
+            this.loginTextBox.Location = new System.Drawing.Point(420, 175);
             this.loginTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.loginTextBox.Name = "loginTextBox";
             this.loginTextBox.Size = new System.Drawing.Size(294, 44);
@@ -123,9 +123,9 @@
             this.registerButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.registerButton.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 26.2F);
             this.registerButton.ForeColor = System.Drawing.Color.White;
-            this.registerButton.Location = new System.Drawing.Point(512, 329);
+            this.registerButton.Location = new System.Drawing.Point(434, 309);
             this.registerButton.Name = "registerButton";
-            this.registerButton.Size = new System.Drawing.Size(259, 57);
+            this.registerButton.Size = new System.Drawing.Size(280, 57);
             this.registerButton.TabIndex = 6;
             this.registerButton.Text = "Регистрация";
             this.registerButton.UseVisualStyleBackColor = true;

@@ -40,7 +40,7 @@
             // 
             this.loginTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.loginTextBox.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginTextBox.Location = new System.Drawing.Point(320, 175);
+            this.loginTextBox.Location = new System.Drawing.Point(420, 175);
             this.loginTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.loginTextBox.Name = "loginTextBox";
             this.loginTextBox.Size = new System.Drawing.Size(294, 44);
@@ -50,11 +50,12 @@
             // 
             this.passTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.passTextBox.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 18F);
-            this.passTextBox.Location = new System.Drawing.Point(320, 238);
+            this.passTextBox.Location = new System.Drawing.Point(420, 238);
             this.passTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.passTextBox.Name = "passTextBox";
             this.passTextBox.Size = new System.Drawing.Size(294, 44);
             this.passTextBox.TabIndex = 10;
+            this.passTextBox.UseSystemPasswordChar = true;
             // 
             // passwordLabel
             // 
@@ -62,7 +63,7 @@
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 26.2F);
             this.passwordLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.passwordLabel.Location = new System.Drawing.Point(186, 229);
+            this.passwordLabel.Location = new System.Drawing.Point(286, 229);
             this.passwordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(128, 53);
@@ -75,7 +76,7 @@
             this.loginLabel.AutoSize = true;
             this.loginLabel.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 26.2F);
             this.loginLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.loginLabel.Location = new System.Drawing.Point(186, 166);
+            this.loginLabel.Location = new System.Drawing.Point(286, 166);
             this.loginLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.loginLabel.Name = "loginLabel";
             this.loginLabel.Size = new System.Drawing.Size(110, 53);
@@ -88,7 +89,7 @@
             this.registerLabel.AutoSize = true;
             this.registerLabel.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 30F);
             this.registerLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.registerLabel.Location = new System.Drawing.Point(290, 85);
+            this.registerLabel.Location = new System.Drawing.Point(390, 85);
             this.registerLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.registerLabel.Name = "registerLabel";
             this.registerLabel.Size = new System.Drawing.Size(235, 60);
@@ -101,7 +102,7 @@
             this.registerButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.registerButton.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 26.2F);
             this.registerButton.ForeColor = System.Drawing.Color.White;
-            this.registerButton.Location = new System.Drawing.Point(195, 309);
+            this.registerButton.Location = new System.Drawing.Point(295, 309);
             this.registerButton.Margin = new System.Windows.Forms.Padding(4);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(419, 57);
@@ -115,7 +116,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1000, 562);
             this.Controls.Add(this.loginTextBox);
             this.Controls.Add(this.passTextBox);
             this.Controls.Add(this.passwordLabel);

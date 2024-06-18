@@ -41,8 +41,8 @@ namespace WindowsFormsTrec
             LoginDataBase dataBase = new LoginDataBase();
             MySqlCommand command = new MySqlCommand("INSERT INTO `users` (`login`, `password`) VALUES (@login, @pass)", dataBase.getConnection()); //записываем данные в таблицу
 
-            command.Parameters.Add("@login", MySqlDbType.VarChar).Value = loginTextBox;
-            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = passTextBox;
+            command.Parameters.Add("@login", MySqlDbType.VarChar).Value = loginTextBox.Text;
+            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = passTextBox.Text;
 
             dataBase.openConnection();
 
