@@ -64,6 +64,7 @@ namespace DataBase
             CreateDataBase();
         }
         
+        //Обязательные функции для работы с excel и пара нужных только мне
         public void CreateDataBase() //Втавить в процесс создания аккаунта
         {
             dataBase = new Excel();
@@ -141,9 +142,9 @@ namespace DataBase
             }
             newAdd++;
         } //Добавление новой операции доходов/расходов - 1/2
-        public void EditPlan(int month, string category, double value) //Редактирование плана на месяц
+        public void EditPlan(string month, string category, double value) //Редактирование плана на месяц
         {
-            dataBase.WriteToCell(month + 2, FindCategory(category), value.ToString());
+            dataBase.WriteToCell(FindMonth(month) + 2, FindCategory(category), value.ToString());
         }
 
 
@@ -494,6 +495,60 @@ namespace DataBase
         public int FindCategory(string category) //Поиск столбца по категории
         {
             return mainHeadLine.ToList().IndexOf(category) + 2;
+        }
+        public int FindMonth(string month) //Поиск месяца
+        {
+            switch (month)
+            {
+                case "Январь":
+                {
+                    return 1;
+                }
+                case "Февраль":
+                {
+                    return 2;
+                }
+                case "Март":
+                {
+                    return 3;
+                }
+                case "Апрель":
+                {
+                    return 4;
+                }
+                case "Май":
+                {
+                    return 5;
+                }
+                case "Июнь":
+                {
+                    return 6;
+                }
+                case "Июль":
+                {
+                    return 7;
+                }
+                case "Август":
+                {
+                    return 8;
+                }
+                case "Сентябрь":
+                {
+                    return 9;
+                }
+                case "Октябрь":
+                {
+                    return 10;
+                }
+                case "Ноябрь":
+                {
+                    return 11;
+                }
+                default:
+                {
+                    return 12;
+                }
+            }
         }
 
         //Действия с книгами
