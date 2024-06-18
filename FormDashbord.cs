@@ -12,7 +12,7 @@ using static WindowsFormsTrec.FormPlan;
 
 namespace WindowsFormsTrec
 {
-    public partial class FormDashbord : Form//, TransactionDataBase
+    public partial class FormDashbord : Form  //, TransactionDataBase
     {
         public FormDashbord()
         {
@@ -118,9 +118,9 @@ namespace WindowsFormsTrec
         {
         }
 
-        private void button2_Click(object sender, EventArgs e, TransactionDataBase dataBase)
+        private void button2_Click(object sender, EventArgs e) //, TransactionDataBase dataBase)
         {
-            dataBase.OpenFile();
+            //dataBase.OpenFile();
 
             chartRealFactIncome.Series[0].XValueMember = "план";
             chartRealFactIncome.Series[0].YValueMembers = "план";
@@ -132,7 +132,9 @@ namespace WindowsFormsTrec
             chartRealFactIncome.DataBind();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        
+
+        private void transactionDataBaseBindingSource_CurrentChanged(object sender, EventArgs e)
         {
 
         }

@@ -57,7 +57,7 @@ namespace DataBase
             outcomeBegining = 9;
             outcomeEnding = 14;
             newAdd = 2;
-            mainHeadLine = new string[] { "Доходы", "1", "2", "3", "4", "Прочие Д.", "", "Расходы", "5", "6", "7", "8", "Прочие Р." };
+            mainHeadLine = new string[] { "Доходы", "Продукты", "2", "3", "4", "Прочие Д.", "", "Расходы", "5", "6", "7", "8", "Прочие Р." };
             CreateDataBase();
         }
         

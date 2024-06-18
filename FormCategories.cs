@@ -24,15 +24,21 @@ namespace WindowsFormsTrec
             comboBox1.Items.Add("Продукты");
             comboBox1.Items.Add("Транспорт");
             comboBox1.Items.Add("Одежда и обувь");
+            comboBox1.Items.Add("Прочие P.");
             comboBox1.Items.Add("Новая категория");
 
             comboBox2.Items.Add("Зарплата");
             comboBox2.Items.Add("Транспорт");
             comboBox2.Items.Add("Одежда и обувь");
+            comboBox2.Items.Add("Прочие Д.");
             comboBox2.Items.Add("Другое");
 
             /*string[] aboba = { "hfpd", "asd", "bang", "New" };
-            comboBox1.Items.AddRange(aboba);*/
+            comboBox1.Items.AddRange(aboba);
+
+            string[] aboba2 = { "hfpd", "asd", "bang", "New" };
+            comboBox2.Items.AddRange(aboba2);*/
+
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -44,20 +50,33 @@ namespace WindowsFormsTrec
 
             try
             {
-                TransactionDataBase dataBase = new TransactionDataBase("Test3");
+                TransactionDataBase dataBase = new TransactionDataBase("Test");
+                dataBase.OpenFile();
                 int type = 2; //списание средств
-                string category = "1"; // comboBox1.Text.ToString(); //изменить, чтобы категория записывалась под цифру 1
                 string date = maskedTextBox3.Text.ToString();
                 double value = double.Parse(textBox1.Text);
+                if (comboBox1.Text == "Продукты") 
+                { 
+                    string category = "5";
+                    dataBase.AddNewTransaction(type, category, date, value); //  вызов метода
 
-                dataBase.AddNewTransaction(type, category, date, value); //  вызов метода
+                }
+                else if (comboBox1.Text == "Прочие P.")
+                {
+                    string category = comboBox1.Text;
+                    dataBase.AddNewTransaction(type, category, date, value); //  вызов метода
+                }
+              //  string category = comboBox1.Text.ToString(); //изменить, чтобы категория записывалась под цифру 1
+                
+
+                //dataBase.AddNewTransaction(type, category, date, value); //  вызов метода
+                dataBase.Save();
                 dataBase.CloseFile();
                 MessageBox.Show("Данные успешно добавлены!");
 
                 comboBox1.SelectedIndex = 0;
                 textBox1.Clear();
                 maskedTextBox3.Clear();
-                comboBox1.SelectedIndex = 0;
             }
             catch (ArgumentException ex)
             {
@@ -70,6 +89,38 @@ namespace WindowsFormsTrec
                 MessageBox.Show("Произошла ошибка: " + ex.Message);
             }
 
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                TransactionDataBase dataBase = new TransactionDataBase("Test");
+                dataBase.OpenFile();
+                int type = 1; //доходы
+                string category = "2"; // comboBox2.Text.ToString(); //изменить, чтобы категория записывалась под цифру 1
+                string date = maskedTextBox1.Text.ToString();
+                double value = double.Parse(textBox2.Text);
+
+                dataBase.AddNewTransaction(type, category, date, value); //  вызов метода
+                dataBase.Save();
+                dataBase.CloseFile();
+                MessageBox.Show("Данные успешно добавлены!");
+
+                comboBox2.SelectedIndex = 0;
+                textBox2.Clear();
+                maskedTextBox1.Clear();
+                
+            }
+            catch (ArgumentException ex)
+            {
+                // Обработка исключения
+                MessageBox.Show("Ошибка: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                // Обработка других исключений
+                MessageBox.Show("Произошла ошибка: " + ex.Message);
+            }
         }
         private void maskedTextBox3_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
@@ -111,22 +162,32 @@ namespace WindowsFormsTrec
             
         }
 
-        private void textBox1_DragDrop(object sender, DragEventArgs e)
-        {
-
-        }
-
         private void FormCategories_ParentChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void maskedTextBox2_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

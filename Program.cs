@@ -31,11 +31,11 @@ namespace WindowsFormsTrec
             //dataBase.CloseFile();
 
             dataBase.OpenFile();
-            dataBase.AddNewTransaction(1, "1", DateTime.Today.ToShortDateString(), 1500);
+           /* dataBase.AddNewTransaction(1, "1", DateTime.Today.ToShortDateString(), 1500);
             dataBase.AddNewTransaction(2, "6", DateTime.Today.ToShortDateString(), 1500);
             dataBase.AddNewTransaction(1, "4", DateTime.Today.ToShortDateString(), 1500);
             dataBase.AddNewTransaction(2, "Прочие Р.", DateTime.Today.ToShortDateString(), 1500);
-            dataBase.AddNewTransaction(1, "4", DateTime.Today.ToShortDateString(), 1500);
+            dataBase.AddNewTransaction(1, "4", DateTime.Today.ToShortDateString(), 1500);*/
             dataBase.Save();
             dataBase.CloseFile();
 
@@ -45,13 +45,13 @@ namespace WindowsFormsTrec
             //dataBase.AddNewCategory("НЕПоследняя)", 2);
             //dataBase.CloseFile();
 
-            //  Application.EnableVisualStyles();
-            //  Application.SetCompatibleTextRenderingDefault(false);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             //  Application.Run(new LoginForm());
             //  TransactionDataBase dataBase = new TransactionDataBase("Test");
             //  Application.EnableVisualStyles();
             //  Application.SetCompatibleTextRenderingDefault(false);
-            //  Application.Run(new FormMain());
+             Application.Run(new FormMain());
         }
     }
 }

@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.chartRealFactIncome = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.transactionDataBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.chartExpenses = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -76,50 +76,50 @@
             // chartRealFactIncome
             // 
             this.chartRealFactIncome.BorderlineColor = System.Drawing.Color.WhiteSmoke;
-            chartArea1.Name = "ChartArea1";
-            this.chartRealFactIncome.ChartAreas.Add(chartArea1);
+            chartArea10.Name = "ChartArea1";
+            this.chartRealFactIncome.ChartAreas.Add(chartArea10);
             this.chartRealFactIncome.DataSource = this.transactionDataBaseBindingSource;
-            legend1.Name = "Legend1";
-            this.chartRealFactIncome.Legends.Add(legend1);
+            legend10.Name = "Legend1";
+            this.chartRealFactIncome.Legends.Add(legend10);
             this.chartRealFactIncome.Location = new System.Drawing.Point(12, 144);
             this.chartRealFactIncome.Name = "chartRealFactIncome";
             this.chartRealFactIncome.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chartRealFactIncome.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series1.BackImageTransparentColor = System.Drawing.Color.White;
-            series1.BorderColor = System.Drawing.Color.White;
-            series1.BorderWidth = 3;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            series1.LabelBackColor = System.Drawing.Color.Fuchsia;
-            series1.Legend = "Legend1";
-            series1.MarkerColor = System.Drawing.Color.Olive;
-            series1.MarkerSize = 4;
-            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series1.Name = "План";
-            series1.ShadowColor = System.Drawing.Color.White;
-            series2.BorderWidth = 2;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            series2.Legend = "Legend1";
-            series2.Name = "Факт";
-            this.chartRealFactIncome.Series.Add(series1);
-            this.chartRealFactIncome.Series.Add(series2);
+            series16.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            series16.BackImageTransparentColor = System.Drawing.Color.White;
+            series16.BorderColor = System.Drawing.Color.White;
+            series16.BorderWidth = 3;
+            series16.ChartArea = "ChartArea1";
+            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series16.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            series16.LabelBackColor = System.Drawing.Color.Fuchsia;
+            series16.Legend = "Legend1";
+            series16.MarkerColor = System.Drawing.Color.Olive;
+            series16.MarkerSize = 4;
+            series16.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series16.Name = "План";
+            series16.ShadowColor = System.Drawing.Color.White;
+            series17.BorderWidth = 2;
+            series17.ChartArea = "ChartArea1";
+            series17.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series17.Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            series17.Legend = "Legend1";
+            series17.Name = "Факт";
+            this.chartRealFactIncome.Series.Add(series16);
+            this.chartRealFactIncome.Series.Add(series17);
             this.chartRealFactIncome.Size = new System.Drawing.Size(392, 149);
             this.chartRealFactIncome.TabIndex = 0;
             this.chartRealFactIncome.Text = "Ожидание - реальность по расходам";
-            title1.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title1.Name = "Title1";
-            title1.Text = "План / Факт расходов";
-            this.chartRealFactIncome.Titles.Add(title1);
+            title7.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title7.Name = "Title1";
+            title7.Text = "План / Факт расходов";
+            this.chartRealFactIncome.Titles.Add(title7);
             this.chartRealFactIncome.Click += new System.EventHandler(this.chartRealFact_Click);
             this.chartRealFactIncome.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.chartRealFactIncome_MouseDoubleClick);
             // 
             // transactionDataBaseBindingSource
             // 
-            this.transactionDataBaseBindingSource.DataSource = typeof(DataBase.TransactionDataBase);
+            this.transactionDataBaseBindingSource.CurrentChanged += new System.EventHandler(this.transactionDataBaseBindingSource_CurrentChanged);
             // 
             // chartExpenses
             // 
@@ -128,22 +128,22 @@
             this.chartExpenses.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.Center;
             this.chartExpenses.BackImageTransparentColor = System.Drawing.Color.White;
             this.chartExpenses.BackSecondaryColor = System.Drawing.Color.White;
-            chartArea2.BorderColor = System.Drawing.Color.Maroon;
-            chartArea2.Name = "ChartArea1";
-            this.chartExpenses.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartExpenses.Legends.Add(legend2);
-            this.chartExpenses.Location = new System.Drawing.Point(392, 175);
+            chartArea11.BorderColor = System.Drawing.Color.Maroon;
+            chartArea11.Name = "ChartArea1";
+            this.chartExpenses.ChartAreas.Add(chartArea11);
+            legend11.Name = "Legend1";
+            this.chartExpenses.Legends.Add(legend11);
+            this.chartExpenses.Location = new System.Drawing.Point(392, 164);
             this.chartExpenses.Name = "chartExpenses";
             this.chartExpenses.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
-            series3.BackSecondaryColor = System.Drawing.Color.Lime;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series3.LabelForeColor = System.Drawing.Color.Transparent;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chartExpenses.Series.Add(series3);
+            series18.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
+            series18.BackSecondaryColor = System.Drawing.Color.Lime;
+            series18.ChartArea = "ChartArea1";
+            series18.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series18.LabelForeColor = System.Drawing.Color.Transparent;
+            series18.Legend = "Legend1";
+            series18.Name = "Series1";
+            this.chartExpenses.Series.Add(series18);
             this.chartExpenses.Size = new System.Drawing.Size(377, 284);
             this.chartExpenses.TabIndex = 1;
             this.chartExpenses.Text = "ыы";
@@ -166,11 +166,11 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Location = new System.Drawing.Point(510, 8);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 23);
+            this.button2.Size = new System.Drawing.Size(128, 30);
             this.button2.TabIndex = 6;
             this.button2.Text = "неделя";
             this.button2.UseVisualStyleBackColor = false;
@@ -178,11 +178,11 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(636, 8);
+            this.button1.Location = new System.Drawing.Point(633, 8);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 23);
+            this.button1.Size = new System.Drawing.Size(137, 30);
             this.button1.TabIndex = 5;
             this.button1.Text = "месяц";
             this.button1.UseVisualStyleBackColor = false;
@@ -192,6 +192,8 @@
             this.dateTimePicker3.CustomFormat = "dd MMM, yyyy";
             this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker3.Location = new System.Drawing.Point(237, 9);
+            this.dateTimePicker3.MaxDate = new System.DateTime(2024, 12, 31, 0, 0, 0, 0);
+            this.dateTimePicker3.MinDate = new System.DateTime(2024, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker3.TabIndex = 4;
@@ -204,6 +206,8 @@
             this.dateTimePicker2.CustomFormat = "dd MMM, yyyy";
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker2.Location = new System.Drawing.Point(23, 9);
+            this.dateTimePicker2.MaxDate = new System.DateTime(2024, 12, 31, 0, 0, 0, 0);
+            this.dateTimePicker2.MinDate = new System.DateTime(2024, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker2.TabIndex = 3;
@@ -212,10 +216,11 @@
             // 
             // buttonOk
             // 
-            this.buttonOk.BackColor = System.Drawing.Color.LightCoral;
-            this.buttonOk.Location = new System.Drawing.Point(443, 9);
+            this.buttonOk.BackColor = System.Drawing.Color.Yellow;
+            this.buttonOk.ForeColor = System.Drawing.Color.Black;
+            this.buttonOk.Location = new System.Drawing.Point(443, 8);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(61, 23);
+            this.buttonOk.Size = new System.Drawing.Size(61, 29);
             this.buttonOk.TabIndex = 2;
             this.buttonOk.Text = "ок";
             this.buttonOk.UseVisualStyleBackColor = false;
@@ -238,7 +243,7 @@
             this.panel4.BackColor = System.Drawing.Color.PaleGreen;
             this.panel4.Controls.Add(this.label5I);
             this.panel4.Controls.Add(this.label6);
-            this.panel4.ForeColor = System.Drawing.Color.White;
+            this.panel4.ForeColor = System.Drawing.Color.Black;
             this.panel4.Location = new System.Drawing.Point(370, 6);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(402, 66);
@@ -338,44 +343,44 @@
             // chart1
             // 
             this.chart1.BorderlineColor = System.Drawing.Color.WhiteSmoke;
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
+            chartArea12.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea12);
             this.chart1.DataSource = this.transactionDataBaseBindingSource;
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            legend12.Name = "Legend1";
+            this.chart1.Legends.Add(legend12);
             this.chart1.Location = new System.Drawing.Point(12, 299);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chart1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            series4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series4.BackImageTransparentColor = System.Drawing.Color.White;
-            series4.BorderColor = System.Drawing.Color.White;
-            series4.BorderWidth = 3;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            series4.LabelBackColor = System.Drawing.Color.Fuchsia;
-            series4.Legend = "Legend1";
-            series4.MarkerColor = System.Drawing.Color.Olive;
-            series4.MarkerSize = 4;
-            series4.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series4.Name = "План";
-            series4.ShadowColor = System.Drawing.Color.White;
-            series5.BorderWidth = 2;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            series5.Legend = "Legend1";
-            series5.Name = "Факт";
-            this.chart1.Series.Add(series4);
-            this.chart1.Series.Add(series5);
+            series19.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            series19.BackImageTransparentColor = System.Drawing.Color.White;
+            series19.BorderColor = System.Drawing.Color.White;
+            series19.BorderWidth = 3;
+            series19.ChartArea = "ChartArea1";
+            series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series19.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            series19.LabelBackColor = System.Drawing.Color.Fuchsia;
+            series19.Legend = "Legend1";
+            series19.MarkerColor = System.Drawing.Color.Olive;
+            series19.MarkerSize = 4;
+            series19.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series19.Name = "План";
+            series19.ShadowColor = System.Drawing.Color.White;
+            series20.BorderWidth = 2;
+            series20.ChartArea = "ChartArea1";
+            series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series20.Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            series20.Legend = "Legend1";
+            series20.Name = "Факт";
+            this.chart1.Series.Add(series19);
+            this.chart1.Series.Add(series20);
             this.chart1.Size = new System.Drawing.Size(392, 149);
             this.chart1.TabIndex = 6;
             this.chart1.Text = "Ожидание - реальность по расходам";
-            title2.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title2.Name = "Title1";
-            title2.Text = "План / Факт доходов";
-            this.chart1.Titles.Add(title2);
+            title8.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title8.Name = "Title1";
+            title8.Text = "План / Факт доходов";
+            this.chart1.Titles.Add(title8);
             // 
             // FormDashbord
             // 
