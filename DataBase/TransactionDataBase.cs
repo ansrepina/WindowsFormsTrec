@@ -18,9 +18,12 @@ namespace DataBase
         private int outcomeBegining;
         private int outcomeEnding;
         private string[] mainHeadLine;
-        //public string[] IncomeCategories { get => mainHeadLine.Split[]; }
         private int newAdd;
-        public TransactionDataBase(string accName)
+        public string[] IncomeCategories { get => new ArraySegment<string>(mainHeadLine, incomeBegining - 1, incomeEnding - incomeBegining).ToArray(); }
+        public string[] OutcomeCategories { get => new ArraySegment<string>(mainHeadLine, outcomeBegining - 1, outcomeEnding - outcomeBegining).ToArray(); }
+
+        //Конструкторы
+        public TransactionDataBase(string accName) //Конструктоор для работы со старой базой данных
         {
             this.accName = accName;
             OpenFile();
@@ -95,6 +98,7 @@ namespace DataBase
             CloseFile();
         }
 
+
         //Данные для диаграмм
         public double[,] ReadDoubleRange(int starti, int startj, int endi, int endj)
         {
@@ -137,6 +141,10 @@ namespace DataBase
             }
             newAdd++;
         } //Добавление новой операции доходов/расходов - 1/2
+        public void EditPlan(int month, string category, double value) //Редактирование плана на месяц
+        {
+            dataBase.WriteToCell(month + 2, FindCategory(category), value.ToString());
+        }
 
 
         //Действия с БД
@@ -215,8 +223,8 @@ namespace DataBase
             //Новый список
 
             SwitchDataBaseSheet(1);
-            dataBase.MoveRange(1, outcomeEnding, 13, outcomeEnding, 1, outcomeEnding + 1);
-            dataBase.FillRange(2, outcomeEnding, 13, outcomeEnding, "0");
+            dataBase.MoveRange(1, outcomeEnding, 14, outcomeEnding, 1, outcomeEnding + 1);
+            dataBase.FillRange(2, outcomeEnding, 14, outcomeEnding, "0");
             dataBase.WriteToCell(1, outcomeEnding, name);
             //Первый лист
 
