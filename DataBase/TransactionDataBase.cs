@@ -101,7 +101,15 @@ namespace DataBase
         }
 
 
-        //Данные для диаграмм
+        //Данные для Дашборда
+        public double[] IncomeOutcomeSaldo(string date1, string date2) //Данные для информационных полей дашборда
+        {
+            double[] values = new double[3];
+            values[0] = SumColumnByDates(date1, date2, incomeBegining);
+            values[1] = SumColumnByDates(date1, date2, outcomeBegining);
+            values[2] = values[0] - values[1];
+            return values;
+        }
         public double[,] IncomePlanFactDiagramData() //Данные для диаграммы план/факт по месяцам
         {
             SwitchDataBaseSheet(1);
