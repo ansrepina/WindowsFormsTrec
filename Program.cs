@@ -17,7 +17,6 @@ namespace WindowsFormsTrec
         [STAThread]
         static void Main()
         {
-<<<<<<< HEAD
            // TransactionDataBase dataBase = new TransactionDataBase("Test");
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
@@ -27,48 +26,15 @@ namespace WindowsFormsTrec
           //  Application.Run(new LoginForm());
 
             string accName = "Test";
-            //string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); //Путь к документам
-            //string filePath = Path.Combine(documentsPath, $"{accName}{DateTime.Today.Year}DataBase.xlsx"); //Путь к файлу
-=======
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new LoginFormNew());
-            string accName = "Test";
             string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string filePath = Path.Combine(documentsPath, $"{accName}{DateTime.Today.Year}DataBase.xlsx");
 
             TransactionDataBase dataBase;
->>>>>>> d604019c590a968e837338fc4dc087a991d82b0e
 
             if (!File.Exists(filePath))
                 dataBase = new TransactionDataBase(accName, 1); //Если файл не существует
             else
                 dataBase = new TransactionDataBase(accName); //Если файл существует
-
-<<<<<<< HEAD
-            //if (!File.Exists(filePath))
-            //    dataBase = new TransactionDataBase("Test", 1); //Если файл не существует
-            //else 
-            //    dataBase = new TransactionDataBase("Test"); //Если файл существует
-
-            //dataBase.OpenFile();
-           // dataBase.CloseFile();
-
-           // dataBase.OpenFile();
-           /* dataBase.AddNewTransaction(1, "1", DateTime.Today.ToShortDateString(), 1500);
-            dataBase.AddNewTransaction(2, "6", DateTime.Today.ToShortDateString(), 1500);
-            dataBase.AddNewTransaction(1, "4", DateTime.Today.ToShortDateString(), 1500);
-            dataBase.AddNewTransaction(2, "Прочие Р.", DateTime.Today.ToShortDateString(), 1500);
-            dataBase.AddNewTransaction(1, "4", DateTime.Today.ToShortDateString(), 1500);*/
-           // dataBase.Save();
-           // dataBase.CloseFile();
-
-            //dataBase.OpenFile();
-            //dataBase.AddNewCategory("Новая", 1);
-            //dataBase.AddNewCategory("Последняя", 2);
-            //dataBase.AddNewCategory("НЕПоследняя)", 2);
-           // dataBase.SaveAndExit();
-
            // Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
             //  Application.Run(new LoginForm());
@@ -77,14 +43,12 @@ namespace WindowsFormsTrec
             //  Application.SetCompatibleTextRenderingDefault(false);
             FormMain formMain = new FormMain();
             formMain.accName = accName;
-             Application.Run(formMain);
-=======
-            dataBase.OpenFile();
+            Application.Run(formMain);
+            //dataBase.OpenFile();
             //double[,] lineDiag1 = dataBase.incomePlanFactDiagramData();
             //double[,] lineDiag2 = dataBase.outcomePlanFactDiagramData();
             //object[,] circDiag = dataBase.rangeCircleDiagramData("01.05.2024", "30.06.2024");
-            dataBase.CloseFile();
->>>>>>> d604019c590a968e837338fc4dc087a991d82b0e
+            //dataBase.CloseFile();
         }
     }
 }

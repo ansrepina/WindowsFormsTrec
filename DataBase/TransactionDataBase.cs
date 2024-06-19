@@ -85,7 +85,7 @@ namespace DataBase
             FileAttributes attributes = File.GetAttributes(filePath);
             attributes &= ~FileAttributes.ReadOnly;
             dataBase = new Excel(filePath);
-        }
+        } 
         public void Save() //После каждого действия с файлом
         {
             dataBase.Save();
@@ -152,7 +152,7 @@ namespace DataBase
 
             for (int i = 0; i < circleDiagramData.GetLength(1); i++)
             {
-                circleDiagramData[0, i] = IncomeCategories[i];
+                circleDiagramData[0, i] = OutcomeCategories[i];
             }
 
             for (int i = 0; i < circleDiagramData.GetLength(1); i++)

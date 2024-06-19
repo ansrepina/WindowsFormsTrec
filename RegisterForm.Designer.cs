@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsTrec
+﻿/*namespace WindowsFormsTrec
 {
     partial class RegisterForm
     {
@@ -125,6 +125,7 @@
             this.Controls.Add(this.registerButton);
             this.Name = "RegisterForm";
             this.Text = "RegisterForm";
+            this.Load += new System.EventHandler(this.RegisterForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,4 +140,4 @@
         private System.Windows.Forms.Label registerLabel;
         private System.Windows.Forms.Button registerButton;
     }
-}
+}*/

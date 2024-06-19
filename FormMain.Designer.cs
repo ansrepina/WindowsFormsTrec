@@ -32,6 +32,7 @@
             this.buttonHelp = new System.Windows.Forms.Button();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.ButtonCategory = new System.Windows.Forms.Button();
             this.ButtonHome = new System.Windows.Forms.Button();
@@ -41,8 +42,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
+            this.TopPanel.SuspendLayout();
             this.panelDesktopPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -81,6 +83,18 @@
             this.panelMenu.Size = new System.Drawing.Size(240, 537);
             this.panelMenu.TabIndex = 1;
             this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.Location = new System.Drawing.Point(0, 208);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(240, 55);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Планирование доходов";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button3
             // 
@@ -122,6 +136,7 @@
             // 
             // TopPanel
             // 
+            this.TopPanel.Controls.Add(this.label1);
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanel.Location = new System.Drawing.Point(0, 0);
             this.TopPanel.Name = "TopPanel";
@@ -172,17 +187,14 @@
             this.label2.Text = "Трекер Расходов";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // button1
+            // label1
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.Location = new System.Drawing.Point(0, 208);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(240, 55);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Планирование доходов";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(107, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // FormMain
             // 
@@ -196,6 +208,8 @@
             this.Name = "FormMain";
             this.Text = "Trecer";
             this.panelMenu.ResumeLayout(false);
+            this.TopPanel.ResumeLayout(false);
+            this.TopPanel.PerformLayout();
             this.panelDesktopPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -218,6 +232,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -62,6 +62,7 @@
             this.labelBalance = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel5 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.chartRealFactIncome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionDataBaseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartExpenses)).BeginInit();
@@ -71,6 +72,7 @@
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // chartRealFactIncome
@@ -81,7 +83,7 @@
             this.chartRealFactIncome.DataSource = this.transactionDataBaseBindingSource;
             legend1.Name = "Legend1";
             this.chartRealFactIncome.Legends.Add(legend1);
-            this.chartRealFactIncome.Location = new System.Drawing.Point(12, 144);
+            this.chartRealFactIncome.Location = new System.Drawing.Point(7, 21);
             this.chartRealFactIncome.Name = "chartRealFactIncome";
             this.chartRealFactIncome.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chartRealFactIncome.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -107,7 +109,7 @@
             series2.Name = "Факт";
             this.chartRealFactIncome.Series.Add(series1);
             this.chartRealFactIncome.Series.Add(series2);
-            this.chartRealFactIncome.Size = new System.Drawing.Size(392, 149);
+            this.chartRealFactIncome.Size = new System.Drawing.Size(374, 166);
             this.chartRealFactIncome.TabIndex = 0;
             this.chartRealFactIncome.Text = "Ожидание - реальность по расходам";
             title1.Alignment = System.Drawing.ContentAlignment.TopLeft;
@@ -123,19 +125,21 @@
             // 
             // chartExpenses
             // 
-            this.chartExpenses.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.chartExpenses.AllowDrop = true;
+            this.chartExpenses.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.chartExpenses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.chartExpenses.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.Center;
+            this.chartExpenses.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Left;
             this.chartExpenses.BackImageTransparentColor = System.Drawing.Color.White;
+            this.chartExpenses.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.TileFlipX;
             this.chartExpenses.BackSecondaryColor = System.Drawing.Color.White;
             chartArea2.BorderColor = System.Drawing.Color.Maroon;
             chartArea2.Name = "ChartArea1";
             this.chartExpenses.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chartExpenses.Legends.Add(legend2);
-            this.chartExpenses.Location = new System.Drawing.Point(404, 164);
+            this.chartExpenses.Location = new System.Drawing.Point(387, 144);
             this.chartExpenses.Name = "chartExpenses";
-            this.chartExpenses.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
             series3.BackSecondaryColor = System.Drawing.Color.Lime;
             series3.ChartArea = "ChartArea1";
@@ -144,9 +148,8 @@
             series3.Legend = "Legend1";
             series3.Name = "Series1";
             this.chartExpenses.Series.Add(series3);
-            this.chartExpenses.Size = new System.Drawing.Size(377, 284);
+            this.chartExpenses.Size = new System.Drawing.Size(450, 359);
             this.chartExpenses.TabIndex = 1;
-            this.chartExpenses.Text = "ыы";
             this.chartExpenses.Click += new System.EventHandler(this.chart2_Click);
             // 
             // panelHome
@@ -160,7 +163,7 @@
             this.panelHome.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHome.Location = new System.Drawing.Point(0, 0);
             this.panelHome.Name = "panelHome";
-            this.panelHome.Size = new System.Drawing.Size(793, 44);
+            this.panelHome.Size = new System.Drawing.Size(837, 44);
             this.panelHome.TabIndex = 2;
             this.panelHome.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHome_Paint);
             // 
@@ -189,7 +192,7 @@
             // 
             // dateTimePickerEnd
             // 
-            this.dateTimePickerEnd.CustomFormat = "dd MMM, yyyy";
+            this.dateTimePickerEnd.CustomFormat = "dd MMM yyyy";
             this.dateTimePickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerEnd.Location = new System.Drawing.Point(237, 9);
             this.dateTimePickerEnd.MaxDate = new System.DateTime(2024, 12, 31, 0, 0, 0, 0);
@@ -197,13 +200,14 @@
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
             this.dateTimePickerEnd.Size = new System.Drawing.Size(200, 22);
             this.dateTimePickerEnd.TabIndex = 4;
+            this.dateTimePickerEnd.Value = new System.DateTime(2024, 6, 18, 0, 0, 0, 0);
             this.dateTimePickerEnd.ValueChanged += new System.EventHandler(this.dateTimePicker3_ValueChanged);
             // 
             // dateTimePickerStart
             // 
             this.dateTimePickerStart.CalendarMonthBackground = System.Drawing.SystemColors.MenuHighlight;
             this.dateTimePickerStart.CalendarTitleBackColor = System.Drawing.Color.Beige;
-            this.dateTimePickerStart.CustomFormat = "dd MMM, yyyy";
+            this.dateTimePickerStart.CustomFormat = "dd MMM yyyy";
             this.dateTimePickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerStart.Location = new System.Drawing.Point(23, 9);
             this.dateTimePickerStart.MaxDate = new System.DateTime(2024, 12, 31, 0, 0, 0, 0);
@@ -234,7 +238,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 44);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(793, 79);
+            this.panel1.Size = new System.Drawing.Size(837, 79);
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -243,10 +247,11 @@
             this.panel4.BackColor = System.Drawing.Color.PaleGreen;
             this.panel4.Controls.Add(this.label5I);
             this.panel4.Controls.Add(this.label6);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.ForeColor = System.Drawing.Color.Black;
-            this.panel4.Location = new System.Drawing.Point(370, 6);
+            this.panel4.Location = new System.Drawing.Point(435, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(402, 66);
+            this.panel4.Size = new System.Drawing.Size(402, 79);
             this.panel4.TabIndex = 9;
             // 
             // label5I
@@ -277,9 +282,9 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label2);
             this.panel3.ForeColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(193, 6);
+            this.panel3.Location = new System.Drawing.Point(181, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(171, 66);
+            this.panel3.Size = new System.Drawing.Size(237, 79);
             this.panel3.TabIndex = 7;
             // 
             // label4
@@ -312,10 +317,11 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.labelBalance);
             this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.ForeColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(23, 6);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(164, 66);
+            this.panel2.Size = new System.Drawing.Size(164, 79);
             this.panel2.TabIndex = 6;
             // 
             // labelBalance
@@ -348,7 +354,7 @@
             this.chart1.DataSource = this.transactionDataBaseBindingSource;
             legend3.Name = "Legend1";
             this.chart1.Legends.Add(legend3);
-            this.chart1.Location = new System.Drawing.Point(12, 299);
+            this.chart1.Location = new System.Drawing.Point(13, 206);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chart1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -374,7 +380,7 @@
             series5.Name = "Факт";
             this.chart1.Series.Add(series4);
             this.chart1.Series.Add(series5);
-            this.chart1.Size = new System.Drawing.Size(392, 149);
+            this.chart1.Size = new System.Drawing.Size(369, 169);
             this.chart1.TabIndex = 6;
             this.chart1.Text = "Ожидание - реальность по расходам";
             title2.Alignment = System.Drawing.ContentAlignment.TopLeft;
@@ -382,17 +388,26 @@
             title2.Text = "План / Факт доходов";
             this.chart1.Titles.Add(title2);
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.chart1);
+            this.panel5.Controls.Add(this.chartRealFactIncome);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel5.Location = new System.Drawing.Point(0, 123);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(381, 428);
+            this.panel5.TabIndex = 7;
+            // 
             // FormDashbord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(793, 486);
-            this.Controls.Add(this.chart1);
+            this.ClientSize = new System.Drawing.Size(837, 551);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelHome);
             this.Controls.Add(this.chartExpenses);
-            this.Controls.Add(this.chartRealFactIncome);
             this.ForeColor = System.Drawing.Color.Transparent;
             this.Name = "FormDashbord";
             this.Text = "Form1";
@@ -409,6 +424,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -435,5 +451,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerEnd;
         private System.Windows.Forms.DateTimePicker dateTimePickerStart;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Panel panel5;
     }
 }

@@ -56,9 +56,10 @@
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(28, 23);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(745, 404);
+            this.panel1.Size = new System.Drawing.Size(800, 450);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -72,7 +73,7 @@
             this.panel3.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(745, 124);
+            this.panel3.Size = new System.Drawing.Size(800, 124);
             this.panel3.TabIndex = 61;
             // 
             // label3
@@ -143,14 +144,14 @@
             "Октябрь",
             "Ноябрь",
             "Декабрь"});
-            this.comboBox2.Location = new System.Drawing.Point(467, 190);
+            this.comboBox2.Location = new System.Drawing.Point(467, 225);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(145, 24);
             this.comboBox2.TabIndex = 35;
             // 
             // maskedTextBox4
             // 
-            this.maskedTextBox4.Location = new System.Drawing.Point(467, 158);
+            this.maskedTextBox4.Location = new System.Drawing.Point(467, 193);
             this.maskedTextBox4.Mask = "00000";
             this.maskedTextBox4.Name = "maskedTextBox4";
             this.maskedTextBox4.Size = new System.Drawing.Size(145, 22);
@@ -160,7 +161,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(366, 158);
+            this.label10.Location = new System.Drawing.Point(366, 193);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(95, 16);
             this.label10.TabIndex = 32;
@@ -169,7 +170,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(410, 198);
+            this.label2.Location = new System.Drawing.Point(410, 233);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 16);
             this.label2.TabIndex = 27;

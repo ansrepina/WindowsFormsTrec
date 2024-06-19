@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+﻿/*using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -87,5 +87,10 @@ namespace WindowsFormsTrec
                 return false;
             }
         }
+
+        private void RegisterForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
-}
+}*/

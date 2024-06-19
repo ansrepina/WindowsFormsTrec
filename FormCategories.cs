@@ -169,5 +169,24 @@ namespace WindowsFormsTrec
         {
 
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                maskedTextBox3.Text = DateTime.Today.ToString("dd.MM.yyyy");
+
+            }
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked == true)
+            {
+                maskedTextBox1.Text = DateTime.Today.ToString("dd.MM.yyyy");
+            }
+        }
     }
 }
+
+

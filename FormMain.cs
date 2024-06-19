@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,9 +26,12 @@ namespace WindowsFormsTrec
         {
             InitializeComponent();
             this.Padding = new Padding(borderSize);//размер
-           // this.BackColor = Color.FromArgb(98, 102, 244);
         }
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            label1.Text = $"{accName}";
 
+        }
       /*  private void button1_Click(object sender, EventArgs e)
         {
             Help.ShowHelp(this, helpfile);
@@ -169,6 +173,11 @@ namespace WindowsFormsTrec
             FormPlanIncome plan = new FormPlanIncome();
             plan.accName = accName;
             OpenClassForm(plan, sender);
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+            label1.Text = $"{accName}";
         }
     }
 }

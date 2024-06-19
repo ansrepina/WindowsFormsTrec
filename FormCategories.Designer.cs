@@ -256,6 +256,7 @@
             this.checkBox1.TabIndex = 49;
             this.checkBox1.Text = "Использовать сегодняшнюю дату";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // checkBox2
             // 
@@ -266,6 +267,7 @@
             this.checkBox2.TabIndex = 50;
             this.checkBox2.Text = "Использовать сегодняшнюю дату";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             this.checkBox2.Click += new System.EventHandler(this.checkBox2_Click);
             // 
             // FormCategories

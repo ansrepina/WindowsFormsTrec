@@ -42,6 +42,9 @@ namespace WindowsFormsTrec
             this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -49,6 +52,7 @@ namespace WindowsFormsTrec
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.comboBox4);
@@ -58,15 +62,18 @@ namespace WindowsFormsTrec
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(24, 25);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(745, 404);
+            this.panel1.Size = new System.Drawing.Size(800, 450);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.maskedTextBox1);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Cursor = System.Windows.Forms.Cursors.Default;
@@ -74,7 +81,7 @@ namespace WindowsFormsTrec
             this.panel3.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(745, 124);
+            this.panel3.Size = new System.Drawing.Size(800, 124);
             this.panel3.TabIndex = 61;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -148,7 +155,7 @@ namespace WindowsFormsTrec
             "Октябрь",
             "Ноябрь",
             "Декабрь"});
-            this.comboBox2.Location = new System.Drawing.Point(467, 190);
+            this.comboBox2.Location = new System.Drawing.Point(467, 225);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(145, 24);
             this.comboBox2.TabIndex = 35;
@@ -156,7 +163,7 @@ namespace WindowsFormsTrec
             // 
             // maskedTextBox4
             // 
-            this.maskedTextBox4.Location = new System.Drawing.Point(467, 158);
+            this.maskedTextBox4.Location = new System.Drawing.Point(467, 193);
             this.maskedTextBox4.Mask = "00000";
             this.maskedTextBox4.Name = "maskedTextBox4";
             this.maskedTextBox4.Size = new System.Drawing.Size(145, 22);
@@ -167,7 +174,7 @@ namespace WindowsFormsTrec
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(366, 158);
+            this.label10.Location = new System.Drawing.Point(366, 193);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(95, 16);
             this.label10.TabIndex = 32;
@@ -176,7 +183,7 @@ namespace WindowsFormsTrec
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(410, 198);
+            this.label2.Location = new System.Drawing.Point(410, 233);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 16);
             this.label2.TabIndex = 27;
@@ -189,6 +196,35 @@ namespace WindowsFormsTrec
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 26;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(652, 99);
+            this.maskedTextBox1.Mask = "00000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(145, 22);
+            this.maskedTextBox1.TabIndex = 62;
+            this.maskedTextBox1.ValidatingType = typeof(int);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(507, 80);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(139, 42);
+            this.label4.TabIndex = 63;
+            this.label4.Text = "Лимит:";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.button2.Location = new System.Drawing.Point(714, 127);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(83, 21);
+            this.button2.TabIndex = 62;
+            this.button2.Text = "ок";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // FormPlan
             // 
@@ -233,5 +269,8 @@ namespace WindowsFormsTrec
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.Button button2;
     }
 }
