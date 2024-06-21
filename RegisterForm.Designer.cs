@@ -1,4 +1,4 @@
-﻿/*namespace WindowsFormsTrec
+﻿namespace WindowsFormsTrec
 {
     partial class RegisterForm
     {
@@ -140,4 +140,4 @@
         private System.Windows.Forms.Label registerLabel;
         private System.Windows.Forms.Button registerButton;
     }
-}*/
+}

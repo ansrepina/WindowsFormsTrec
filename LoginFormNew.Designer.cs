@@ -1,4 +1,4 @@
-﻿/*namespace WindowsFormsTrec
+﻿namespace WindowsFormsTrec
 {
     partial class LoginFormNew
     {
@@ -164,4 +164,4 @@
         private System.Windows.Forms.TextBox loginTextBox;
         private System.Windows.Forms.Button registerButton;
     }
-}*/
+}

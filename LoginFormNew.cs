@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace WindowsFormsTrec
 {
@@ -40,6 +41,13 @@ namespace WindowsFormsTrec
 
             if (dataTable.Rows.Count > 0)
             {
+                string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                string filePath = Path.Combine(documentsPath, $"{loginUser}{DateTime.Today.Year}DataBase.xlsx");
+                if (!File.Exists(filePath))
+                {
+                    TransactionDataBase excel = new TransactionDataBase(loginUser, 1);
+                }
+
                 MessageBox.Show("Вы авторизовались");
                 FormMain formMain = new FormMain();
                 formMain.accName = loginUser;
@@ -98,22 +106,22 @@ namespace WindowsFormsTrec
             Hide();
         }
 
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // LoginFormNew
-            // 
-            this.ClientSize = new System.Drawing.Size(282, 253);
-            this.Name = "LoginFormNew";
-            this.Load += new System.EventHandler(this.LoginFormNew_Load_1);
-            this.ResumeLayout(false);
-
-        }
+        //private void InitializeComponent()
+        //{
+        //    this.SuspendLayout();
+        //    // 
+        //    // LoginFormNew
+        //    // 
+        //    this.ClientSize = new System.Drawing.Size(282, 253);
+        //    this.Name = "LoginFormNew";
+        //    this.Load += new System.EventHandler(this.LoginFormNew_Load_1);
+        //    this.ResumeLayout(false);
+        //}
 
         private void LoginFormNew_Load_1(object sender, EventArgs e)
         {
 
         }
     }
+
 }
