@@ -63,9 +63,9 @@
             this.label1.Location = new System.Drawing.Point(175, 164);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(279, 32);
+            this.label1.Size = new System.Drawing.Size(271, 32);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Введите категорию:";
+            this.label1.Text = "Введите категорию";
             // 
             // textBox1
             // 

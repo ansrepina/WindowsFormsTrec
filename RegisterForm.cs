@@ -1,4 +1,4 @@
-﻿/*using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -92,5 +92,23 @@ namespace WindowsFormsTrec
         {
 
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // RegisterForm
+            // 
+            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.Name = "RegisterForm";
+            this.Load += new System.EventHandler(this.RegisterForm_Load_1);
+            this.ResumeLayout(false);
+
+        }
+
+        private void RegisterForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
-}*/
+}

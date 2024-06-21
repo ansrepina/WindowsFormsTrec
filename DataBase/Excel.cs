@@ -126,6 +126,15 @@ namespace DataBase
         public double[,] ReadDoubleRange(int starti, int startj, int endi, int endj) //Чтение целого диапазона клеток с ЧИСЛАМИ!!!
         {
             var range = ws.Range[ws.Cells[starti, startj], ws.Cells[endi, endj]];
+            if (range.Value2 is string || range.Value2 is double)
+            {
+                double[,] onlyOne;
+                if (range.Value2 is double)
+                    onlyOne = new double[,] { { range.Value2 } };
+                else
+                    onlyOne = new double[,] { { double.Parse(range.Value2) } };
+                return onlyOne;
+            }
             object[,] rangeValues = range.Value2;
             double[,] values = new double[rangeValues.GetLength(0), rangeValues.GetLength(1)];
             for (int i = 0; i < values.GetLength(0); i++)

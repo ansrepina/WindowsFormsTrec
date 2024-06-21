@@ -323,7 +323,8 @@ namespace DataBase
         public double SumColumnByDates(string date1, string date2, int column)
         {
             SwitchDataBaseSheet(3);
-            double[,] values = dataBase.ReadDoubleRange(FindDate(date1), column, FindDate(date2), column);
+            var range = dataBase.ReadDoubleRange(FindDate(date1), column, FindDate(date2), column);
+            double[,] values = range;
             double sum = 0;
             for (int i = 0; i < values.GetLength(0); i++)
             {

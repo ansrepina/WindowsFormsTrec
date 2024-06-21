@@ -1,4 +1,4 @@
-﻿/*using DataBase;
+﻿using DataBase;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -97,5 +97,23 @@ namespace WindowsFormsTrec
             form2.Show(this);
             Hide();
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // LoginFormNew
+            // 
+            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.Name = "LoginFormNew";
+            this.Load += new System.EventHandler(this.LoginFormNew_Load_1);
+            this.ResumeLayout(false);
+
+        }
+
+        private void LoginFormNew_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
-}*/
+}
