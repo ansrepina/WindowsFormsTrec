@@ -102,7 +102,7 @@ namespace DataBase
 
 
         //Данные для Дашборда
-        public double[] IncomeOutcomeSaldo(string date1, string date2) //Данные для информационных полей дашборда
+        public double[] IncomeOutcomeSaldo(string date1, string date2) //Данные для информационных полей дашборда 
         {
             double[] values = new double[3];
             values[0] = SumColumnByDates(date1, date2, incomeBegining);
@@ -351,15 +351,13 @@ namespace DataBase
 
             dataBase.CreateNewSheet();
             SwitchDataBaseSheet(2);
-            dataBase.FillRange(2, incomeBegining + 1, 14, incomeEnding, "0");
-            dataBase.FillRange(2, outcomeBegining + 1, 14, outcomeEnding, "0");
             dataBase.ChangeSheetName("Факт на год");
             //Заготовка под второй лист
 
             dataBase.CreateNewSheet();
             SwitchDataBaseSheet(3);
-            dataBase.FillRange(2, incomeBegining + 1, 378, incomeEnding, "0");
-            dataBase.FillRange(2, outcomeBegining + 1, 378, outcomeEnding, "0");
+            dataBase.FillRange(3, incomeBegining + 1, 378, incomeEnding, "0");
+            dataBase.FillRange(3, outcomeBegining + 1, 378, outcomeEnding, "0");
             if (DateTime.Today.Year % 4 == 0)
             {
                 dataBase.FillRange(379, incomeBegining + 1, 379, incomeEnding, "0");
