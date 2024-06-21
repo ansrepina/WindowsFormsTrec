@@ -19,6 +19,7 @@ namespace WindowsFormsTrec
         public FormDashbord()
         {
             InitializeComponent();
+            
         }
         private void BalanceOutput(object sender, LayoutEventArgs e) //вывод баланса из базы данных на печать в виде итоговой суммы (int)
         {
@@ -45,7 +46,28 @@ namespace WindowsFormsTrec
 
         private void FormHome_Load(object sender, EventArgs e)
         {
-           // this.DataBase.Fill(this.)
+            string today = DateTime.Today.ToShortDateString(); //стартовое значение
+            Dictionary<string, double> chartSource = new Dictionary<string, double>();
+            TransactionDataBase dataBase = new TransactionDataBase(accName);
+            dataBase.OpenFile();
+            object[,] diagram = dataBase.rangeCircleDiagramData(today, today);
+            for (int i = 0; i < diagram.GetLength(1); i++)
+            {
+                chartSource.Add(diagram[0, i].ToString() + " " + diagram[1, i].ToString(), double.Parse(diagram[1, i].ToString()));
+            }
+            chartExpenses.Series.Clear();
+            chartExpenses.Series.Add("pie");
+            chartExpenses.Series["pie"].ChartType = SeriesChartType.Pie;
+            chartExpenses.Series["pie"].Points.DataBindXY(chartSource.Keys, chartSource.Values);
+            //вывод в панель
+            double[] outt = dataBase.IncomeOutcomeSaldo(today, today);
+            labelIncome.Text = outt[0].ToString();
+            labelExpenses.Text = outt[1].ToString();
+            labelSaldo.Text = outt[2].ToString();
+            dataBase.CloseFile();
+
+
+
         }
 
         private void chart2_Click(object sender, EventArgs e)
@@ -89,87 +111,89 @@ namespace WindowsFormsTrec
 
         }
 
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        /*public object[,] rangeCircleDiagramData(string date1, string date2) //Данные для круговой диаграммы, расходы по 
-        {
-            object[,] circleDiagramData = new object[2, outcomeEnding - outcomeBegining];
-
-            for (int i = 0; i < circleDiagramData.GetLength(1); i++)
-            {
-                circleDiagramData[0, i] = OutcomeCategories[i];
-            }
-
-            for (int i = 0; i < circleDiagramData.GetLength(1); i++)
-            {
-                circleDiagramData[1, i] = SumColumnByDates(date1, date2, outcomeBegining + i + 1);
-            }
-            return circleDiagramData;
-        }*/
-
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            //SeriesCollection series = new SeriesCollection();
             string date1 = dateTimePickerStart.Value.ToString(); //стартовое значение
             string date2 = dateTimePickerEnd.Value.ToString(); //конечное значение
             Dictionary<string, double> chartSource = new Dictionary<string, double>();
             TransactionDataBase dataBase = new TransactionDataBase(accName);
             dataBase.OpenFile();
+
             object[,] diagram = dataBase.rangeCircleDiagramData(date1, date2);
             for( int i = 0; i < diagram.GetLength(1); i++)
             {
-                chartSource.Add(diagram[0, i].ToString(), double.Parse(diagram[1, i].ToString()));
+                chartSource.Add(diagram[0, i].ToString() + " " + diagram[1, i].ToString(), double.Parse(diagram[1, i].ToString()));
             }
             chartExpenses.Series.Clear();
             chartExpenses.Series.Add("pie");
             chartExpenses.Series["pie"].ChartType = SeriesChartType.Pie;
             chartExpenses.Series["pie"].Points.DataBindXY(chartSource.Keys, chartSource.Values);
+
+            //вывод в панель
+            double[] outt = dataBase.IncomeOutcomeSaldo(date1, date2);
+            labelIncome.Text = outt[0].ToString();
+            labelExpenses.Text = outt[1].ToString();
+            labelSaldo.Text = outt[2].ToString();
+
+            //вывод данных таблицы план/факт доходов
+            double[,] table = dataBase.IncomePlanFactDiagramData();
+            double[] y1Val = new double[12];
+            double[] y2Val = new double[12];
+            for (int i = 0; i < 12; i++)
+            {
+                y1Val[i] = table[0, i];
+                y2Val[i] = table[1, i];
+            }
+            string[] xVal = new string[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" };
+            chartRealFactIncome.Series.Clear();
+
+            Series s1 = new Series("План") { ChartType = SeriesChartType.Spline };
+            Series s2 = new Series("Факт") { ChartType = SeriesChartType.Spline };
+            s1.Points.DataBindXY(xVal, y1Val);
+            s2.Points.DataBindXY(xVal, y2Val);
+
+            chartRealFactIncome.Series.Add(s1);
+            chartRealFactIncome.Series.Add(s2);
+
+
+            //вывод данных таблицы план/факт расходов
+            double[,] table2 = dataBase.OutcomePlanFactDiagramData();
+            double[] y1Val2 = new double[12];
+            double[] y2Val2 = new double[12];
+            for (int i = 0; i < 12; i++)
+            {
+                y1Val2[i] = table2[0, i];
+                y2Val2[i] = table2[1, i];
+            }
+            chart1.Series.Clear();
+
+            Series s12 = new Series("План") { ChartType = SeriesChartType.Spline };
+            Series s22 = new Series("Факт") { ChartType = SeriesChartType.Spline };
+            s12.Points.DataBindXY(xVal, y1Val2);
+            s22.Points.DataBindXY(xVal, y2Val2);
+
+            chart1.Series.Add(s12);
+            chart1.Series.Add(s22);
+
+
         }
-            //SeriesCollection series = new SeriesCollection();
-            
-
-
-            /*string start = dateTimePickerStart.Value.ToString(); //стартовое значение
-            string end = dateTimePickerEnd.Value.ToString(); //конечное значение
-                                                             //dataBase.OpenFile();
-            
-
-            chartRealFactIncome.Series[0].XValueMember = "план";
-            chartRealFactIncome.Series[0].YValueMembers = "план";
-
-            chartRealFactIncome.Series[1].XValueMember = "факт";
-            chartRealFactIncome.Series[1].YValueMembers = "факт";
-
-            //  chartRealFactIncome.DataSource = database
-            chartRealFactIncome.DataBind();*/
-
-
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
         }
 
-        private void button2_Click(object sender, EventArgs e) //, TransactionDataBase dataBase)
+        private void transactionDataBaseBindingSource_CurrentChanged(object sender, EventArgs e)
         {
-           
+
         }
 
-        
-
-        private void transactionDataBaseBindingSource_CurrentChanged(object sender, EventArgs e)
+        private void chart1_Click(object sender, EventArgs e)
         {
 
         }

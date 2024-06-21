@@ -51,6 +51,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdd.Designer.cs">
+      <DependentUpon>FormAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAdd2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdd2.Designer.cs">
+      <DependentUpon>FormAdd2.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCategories.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,17 +87,33 @@
     <Compile Include="FormPlan.Designer.cs">
       <DependentUpon>FormPlan.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPlanIncome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlanIncome.Designer.cs">
+      <DependentUpon>FormPlanIncome.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginDataBase.cs" />
-    <Compile Include="LoginFormNew.cs" />
+    <Compile Include="LoginFormNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="LoginFormNew.designer.cs">
       <DependentUpon>LoginFormNew.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterForm.cs" />
+    <Compile Include="RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="RegisterForm.designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormAdd.resx">
+      <DependentUpon>FormAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdd2.resx">
+      <DependentUpon>FormAdd2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCategories.resx">
       <DependentUpon>FormCategories.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPlan.resx">
       <DependentUpon>FormPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlanIncome.resx">
+      <DependentUpon>FormPlanIncome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginFormNew.resx">
       <DependentUpon>LoginFormNew.cs</DependentUpon>

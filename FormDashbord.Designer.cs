@@ -37,34 +37,33 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.chartRealFactIncome = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.transactionDataBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.chartExpenses = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panelHome = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.buttonOk = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label5I = new System.Windows.Forms.Label();
+            this.labelSaldo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelExpenses = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.labelBalance = new System.Windows.Forms.Label();
+            this.labelIncome = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.transactionDataBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.chartRealFactIncome)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionDataBaseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartExpenses)).BeginInit();
             this.panelHome.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -73,6 +72,7 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionDataBaseBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // chartRealFactIncome
@@ -80,10 +80,9 @@
             this.chartRealFactIncome.BorderlineColor = System.Drawing.Color.WhiteSmoke;
             chartArea1.Name = "ChartArea1";
             this.chartRealFactIncome.ChartAreas.Add(chartArea1);
-            this.chartRealFactIncome.DataSource = this.transactionDataBaseBindingSource;
             legend1.Name = "Legend1";
             this.chartRealFactIncome.Legends.Add(legend1);
-            this.chartRealFactIncome.Location = new System.Drawing.Point(7, 21);
+            this.chartRealFactIncome.Location = new System.Drawing.Point(3, 21);
             this.chartRealFactIncome.Name = "chartRealFactIncome";
             this.chartRealFactIncome.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chartRealFactIncome.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -109,26 +108,20 @@
             series2.Name = "Факт";
             this.chartRealFactIncome.Series.Add(series1);
             this.chartRealFactIncome.Series.Add(series2);
-            this.chartRealFactIncome.Size = new System.Drawing.Size(374, 166);
+            this.chartRealFactIncome.Size = new System.Drawing.Size(543, 190);
             this.chartRealFactIncome.TabIndex = 0;
             this.chartRealFactIncome.Text = "Ожидание - реальность по расходам";
             title1.Alignment = System.Drawing.ContentAlignment.TopLeft;
             title1.Name = "Title1";
-            title1.Text = "План / Факт расходов";
+            title1.Text = "План / Факт доходов";
             this.chartRealFactIncome.Titles.Add(title1);
             this.chartRealFactIncome.Click += new System.EventHandler(this.chartRealFact_Click);
             this.chartRealFactIncome.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.chartRealFactIncome_MouseDoubleClick);
-            // 
-            // transactionDataBaseBindingSource
-            // 
-            this.transactionDataBaseBindingSource.CurrentChanged += new System.EventHandler(this.transactionDataBaseBindingSource_CurrentChanged);
             // 
             // chartExpenses
             // 
             this.chartExpenses.AllowDrop = true;
             this.chartExpenses.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.chartExpenses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.chartExpenses.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.Center;
             this.chartExpenses.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Left;
             this.chartExpenses.BackImageTransparentColor = System.Drawing.Color.White;
             this.chartExpenses.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.TileFlipX;
@@ -138,67 +131,62 @@
             this.chartExpenses.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chartExpenses.Legends.Add(legend2);
-            this.chartExpenses.Location = new System.Drawing.Point(387, 144);
+            this.chartExpenses.Location = new System.Drawing.Point(545, 123);
             this.chartExpenses.Name = "chartExpenses";
             series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
-            series3.BackSecondaryColor = System.Drawing.Color.Lime;
+            series3.BackImageTransparentColor = System.Drawing.Color.Transparent;
+            series3.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.TileFlipX;
+            series3.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
             series3.LabelForeColor = System.Drawing.Color.Transparent;
             series3.Legend = "Legend1";
             series3.Name = "Series1";
+            series3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
             this.chartExpenses.Series.Add(series3);
-            this.chartExpenses.Size = new System.Drawing.Size(450, 359);
+            this.chartExpenses.Size = new System.Drawing.Size(495, 428);
             this.chartExpenses.TabIndex = 1;
+            title2.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Left;
+            title2.Name = "Title1";
+            title2.Text = "Фактически траты";
+            this.chartExpenses.Titles.Add(title2);
             this.chartExpenses.Click += new System.EventHandler(this.chart2_Click);
             // 
             // panelHome
             // 
             this.panelHome.BackColor = System.Drawing.Color.Transparent;
-            this.panelHome.Controls.Add(this.button2);
-            this.panelHome.Controls.Add(this.button1);
+            this.panelHome.Controls.Add(this.label3);
             this.panelHome.Controls.Add(this.dateTimePickerEnd);
             this.panelHome.Controls.Add(this.dateTimePickerStart);
             this.panelHome.Controls.Add(this.buttonOk);
             this.panelHome.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHome.Location = new System.Drawing.Point(0, 0);
             this.panelHome.Name = "panelHome";
-            this.panelHome.Size = new System.Drawing.Size(837, 44);
+            this.panelHome.Size = new System.Drawing.Size(1040, 44);
             this.panelHome.TabIndex = 2;
             this.panelHome.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHome_Paint);
             // 
-            // button2
+            // label3
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(510, 8);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 30);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "неделя";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(633, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 30);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "месяц";
-            this.button1.UseVisualStyleBackColor = false;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(12, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(300, 22);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Выберите промежуток времени";
             // 
             // dateTimePickerEnd
             // 
             this.dateTimePickerEnd.CustomFormat = "dd MMM yyyy";
             this.dateTimePickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerEnd.Location = new System.Drawing.Point(237, 9);
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(467, 8);
             this.dateTimePickerEnd.MaxDate = new System.DateTime(2024, 12, 31, 0, 0, 0, 0);
             this.dateTimePickerEnd.MinDate = new System.DateTime(2024, 1, 1, 0, 0, 0, 0);
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
-            this.dateTimePickerEnd.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(160, 22);
             this.dateTimePickerEnd.TabIndex = 4;
             this.dateTimePickerEnd.Value = new System.DateTime(2024, 6, 18, 0, 0, 0, 0);
             this.dateTimePickerEnd.ValueChanged += new System.EventHandler(this.dateTimePicker3_ValueChanged);
@@ -209,11 +197,11 @@
             this.dateTimePickerStart.CalendarTitleBackColor = System.Drawing.Color.Beige;
             this.dateTimePickerStart.CustomFormat = "dd MMM yyyy";
             this.dateTimePickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerStart.Location = new System.Drawing.Point(23, 9);
+            this.dateTimePickerStart.Location = new System.Drawing.Point(318, 8);
             this.dateTimePickerStart.MaxDate = new System.DateTime(2024, 12, 31, 0, 0, 0, 0);
             this.dateTimePickerStart.MinDate = new System.DateTime(2024, 1, 1, 0, 0, 0, 0);
             this.dateTimePickerStart.Name = "dateTimePickerStart";
-            this.dateTimePickerStart.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerStart.Size = new System.Drawing.Size(144, 22);
             this.dateTimePickerStart.TabIndex = 3;
             this.dateTimePickerStart.Value = new System.DateTime(2024, 6, 17, 0, 0, 0, 0);
             this.dateTimePickerStart.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
@@ -222,7 +210,7 @@
             // 
             this.buttonOk.BackColor = System.Drawing.Color.Yellow;
             this.buttonOk.ForeColor = System.Drawing.Color.Black;
-            this.buttonOk.Location = new System.Drawing.Point(443, 8);
+            this.buttonOk.Location = new System.Drawing.Point(633, 7);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(61, 29);
             this.buttonOk.TabIndex = 2;
@@ -238,32 +226,32 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 44);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(837, 79);
+            this.panel1.Size = new System.Drawing.Size(1040, 79);
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.PaleGreen;
-            this.panel4.Controls.Add(this.label5I);
+            this.panel4.Controls.Add(this.labelSaldo);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.ForeColor = System.Drawing.Color.Black;
-            this.panel4.Location = new System.Drawing.Point(435, 0);
+            this.panel4.Location = new System.Drawing.Point(542, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(402, 79);
+            this.panel4.Size = new System.Drawing.Size(498, 79);
             this.panel4.TabIndex = 9;
             // 
-            // label5I
+            // labelSaldo
             // 
-            this.label5I.AutoSize = true;
-            this.label5I.Font = new System.Drawing.Font("Gentium Basic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5I.Location = new System.Drawing.Point(16, 29);
-            this.label5I.Name = "label5I";
-            this.label5I.Size = new System.Drawing.Size(84, 32);
-            this.label5I.TabIndex = 8;
-            this.label5I.Text = "10000";
-            this.label5I.Click += new System.EventHandler(this.label5_Click);
+            this.labelSaldo.AutoSize = true;
+            this.labelSaldo.Font = new System.Drawing.Font("Gentium Basic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSaldo.Location = new System.Drawing.Point(16, 29);
+            this.labelSaldo.Name = "labelSaldo";
+            this.labelSaldo.Size = new System.Drawing.Size(84, 32);
+            this.labelSaldo.TabIndex = 8;
+            this.labelSaldo.Text = "10000";
+            this.labelSaldo.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -271,33 +259,33 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Uighur", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(18, 10);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(146, 24);
+            this.label6.Size = new System.Drawing.Size(78, 24);
             this.label6.TabIndex = 7;
-            this.label6.Text = "Общая прибыль:";
+            this.label6.Text = "Сальдо:";
             this.label6.Layout += new System.Windows.Forms.LayoutEventHandler(this.TotalProfitOutput);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.labelExpenses);
             this.panel3.Controls.Add(this.label2);
             this.panel3.ForeColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(181, 0);
+            this.panel3.Location = new System.Drawing.Point(170, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(237, 79);
+            this.panel3.Size = new System.Drawing.Size(620, 79);
             this.panel3.TabIndex = 7;
             // 
-            // label4
+            // labelExpenses
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Gentium Basic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(19, 29);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 32);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "10000";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            this.label4.Layout += new System.Windows.Forms.LayoutEventHandler(this.GeneralExpensesOutput);
+            this.labelExpenses.AutoSize = true;
+            this.labelExpenses.Font = new System.Drawing.Font("Gentium Basic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelExpenses.Location = new System.Drawing.Point(19, 29);
+            this.labelExpenses.Name = "labelExpenses";
+            this.labelExpenses.Size = new System.Drawing.Size(84, 32);
+            this.labelExpenses.TabIndex = 8;
+            this.labelExpenses.Text = "10000";
+            this.labelExpenses.Click += new System.EventHandler(this.label4_Click);
+            this.labelExpenses.Layout += new System.Windows.Forms.LayoutEventHandler(this.GeneralExpensesOutput);
             // 
             // label2
             // 
@@ -315,7 +303,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.labelBalance);
+            this.panel2.Controls.Add(this.labelIncome);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.ForeColor = System.Drawing.Color.White;
@@ -324,17 +312,17 @@
             this.panel2.Size = new System.Drawing.Size(164, 79);
             this.panel2.TabIndex = 6;
             // 
-            // labelBalance
+            // labelIncome
             // 
-            this.labelBalance.AutoSize = true;
-            this.labelBalance.Font = new System.Drawing.Font("Gentium Basic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBalance.Location = new System.Drawing.Point(6, 29);
-            this.labelBalance.Name = "labelBalance";
-            this.labelBalance.Size = new System.Drawing.Size(84, 32);
-            this.labelBalance.TabIndex = 7;
-            this.labelBalance.Text = "10000";
-            this.labelBalance.Click += new System.EventHandler(this.label3_Click);
-            this.labelBalance.Layout += new System.Windows.Forms.LayoutEventHandler(this.BalanceOutput);
+            this.labelIncome.AutoSize = true;
+            this.labelIncome.Font = new System.Drawing.Font("Gentium Basic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIncome.Location = new System.Drawing.Point(6, 29);
+            this.labelIncome.Name = "labelIncome";
+            this.labelIncome.Size = new System.Drawing.Size(84, 32);
+            this.labelIncome.TabIndex = 7;
+            this.labelIncome.Text = "10000";
+            this.labelIncome.Click += new System.EventHandler(this.label3_Click);
+            this.labelIncome.Layout += new System.Windows.Forms.LayoutEventHandler(this.BalanceOutput);
             // 
             // label1
             // 
@@ -342,19 +330,18 @@
             this.label1.Font = new System.Drawing.Font("Gentium Basic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(8, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 21);
+            this.label1.Size = new System.Drawing.Size(80, 21);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Баланс:";
+            this.label1.Text = "Доходы:";
             // 
             // chart1
             // 
             this.chart1.BorderlineColor = System.Drawing.Color.WhiteSmoke;
             chartArea3.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea3);
-            this.chart1.DataSource = this.transactionDataBaseBindingSource;
             legend3.Name = "Legend1";
             this.chart1.Legends.Add(legend3);
-            this.chart1.Location = new System.Drawing.Point(13, 206);
+            this.chart1.Location = new System.Drawing.Point(16, 196);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chart1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -380,13 +367,14 @@
             series5.Name = "Факт";
             this.chart1.Series.Add(series4);
             this.chart1.Series.Add(series5);
-            this.chart1.Size = new System.Drawing.Size(369, 169);
+            this.chart1.Size = new System.Drawing.Size(530, 216);
             this.chart1.TabIndex = 6;
             this.chart1.Text = "Ожидание - реальность по расходам";
-            title2.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title2.Name = "Title1";
-            title2.Text = "План / Факт доходов";
-            this.chart1.Titles.Add(title2);
+            title3.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title3.Name = "Title1";
+            title3.Text = "План / Факт расходов";
+            this.chart1.Titles.Add(title3);
+            this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
             // panel5
             // 
@@ -395,15 +383,19 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(0, 123);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(381, 428);
+            this.panel5.Size = new System.Drawing.Size(572, 412);
             this.panel5.TabIndex = 7;
+            // 
+            // transactionDataBaseBindingSource
+            // 
+            this.transactionDataBaseBindingSource.CurrentChanged += new System.EventHandler(this.transactionDataBaseBindingSource_CurrentChanged);
             // 
             // FormDashbord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(837, 551);
+            this.ClientSize = new System.Drawing.Size(1040, 535);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelHome);
@@ -413,9 +405,9 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormHome_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chartRealFactIncome)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionDataBaseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartExpenses)).EndInit();
             this.panelHome.ResumeLayout(false);
+            this.panelHome.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -425,6 +417,7 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.transactionDataBaseBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -440,17 +433,16 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label labelBalance;
+        private System.Windows.Forms.Label labelIncome;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label5I;
+        private System.Windows.Forms.Label labelSaldo;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelExpenses;
         private System.Windows.Forms.BindingSource transactionDataBaseBindingSource;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dateTimePickerEnd;
         private System.Windows.Forms.DateTimePicker dateTimePickerStart;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label3;
     }
 }
