@@ -54,11 +54,11 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.labelSaldo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.labelIncome = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.labelExpenses = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.labelIncome = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -68,8 +68,8 @@
             this.panelHome.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.transactionDataBaseBindingSource)).BeginInit();
@@ -82,7 +82,8 @@
             this.chartRealFactIncome.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartRealFactIncome.Legends.Add(legend1);
-            this.chartRealFactIncome.Location = new System.Drawing.Point(3, 21);
+            this.chartRealFactIncome.Location = new System.Drawing.Point(0, 0);
+            this.chartRealFactIncome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chartRealFactIncome.Name = "chartRealFactIncome";
             this.chartRealFactIncome.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chartRealFactIncome.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -108,7 +109,7 @@
             series2.Name = "Факт";
             this.chartRealFactIncome.Series.Add(series1);
             this.chartRealFactIncome.Series.Add(series2);
-            this.chartRealFactIncome.Size = new System.Drawing.Size(543, 190);
+            this.chartRealFactIncome.Size = new System.Drawing.Size(429, 209);
             this.chartRealFactIncome.TabIndex = 0;
             this.chartRealFactIncome.Text = "Ожидание - реальность по расходам";
             title1.Alignment = System.Drawing.ContentAlignment.TopLeft;
@@ -131,7 +132,8 @@
             this.chartExpenses.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chartExpenses.Legends.Add(legend2);
-            this.chartExpenses.Location = new System.Drawing.Point(545, 123);
+            this.chartExpenses.Location = new System.Drawing.Point(427, 71);
+            this.chartExpenses.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chartExpenses.Name = "chartExpenses";
             series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
             series3.BackImageTransparentColor = System.Drawing.Color.Transparent;
@@ -144,7 +146,7 @@
             series3.Name = "Series1";
             series3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
             this.chartExpenses.Series.Add(series3);
-            this.chartExpenses.Size = new System.Drawing.Size(495, 428);
+            this.chartExpenses.Size = new System.Drawing.Size(429, 418);
             this.chartExpenses.TabIndex = 1;
             title2.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Left;
             title2.Name = "Title1";
@@ -154,15 +156,16 @@
             // 
             // panelHome
             // 
-            this.panelHome.BackColor = System.Drawing.Color.Transparent;
+            this.panelHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(176)))), ((int)(((byte)(197)))));
             this.panelHome.Controls.Add(this.label3);
             this.panelHome.Controls.Add(this.dateTimePickerEnd);
             this.panelHome.Controls.Add(this.dateTimePickerStart);
             this.panelHome.Controls.Add(this.buttonOk);
             this.panelHome.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHome.Location = new System.Drawing.Point(0, 0);
+            this.panelHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelHome.Name = "panelHome";
-            this.panelHome.Size = new System.Drawing.Size(1040, 44);
+            this.panelHome.Size = new System.Drawing.Size(856, 38);
             this.panelHome.TabIndex = 2;
             this.panelHome.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHome_Paint);
             // 
@@ -170,23 +173,26 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(12, 9);
+            this.label3.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 17.2F);
+            this.label3.ForeColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(300, 22);
+            this.label3.Size = new System.Drawing.Size(316, 35);
             this.label3.TabIndex = 8;
             this.label3.Text = "Выберите промежуток времени";
+            this.label3.Click += new System.EventHandler(this.label3_Click_1);
             // 
             // dateTimePickerEnd
             // 
             this.dateTimePickerEnd.CustomFormat = "dd MMM yyyy";
+            this.dateTimePickerEnd.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 10F);
             this.dateTimePickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerEnd.Location = new System.Drawing.Point(467, 8);
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(483, 5);
+            this.dateTimePickerEnd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerEnd.MaxDate = new System.DateTime(2024, 12, 31, 0, 0, 0, 0);
             this.dateTimePickerEnd.MinDate = new System.DateTime(2024, 1, 1, 0, 0, 0, 0);
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
-            this.dateTimePickerEnd.Size = new System.Drawing.Size(160, 22);
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(160, 28);
             this.dateTimePickerEnd.TabIndex = 4;
             this.dateTimePickerEnd.Value = new System.DateTime(2024, 6, 18, 0, 0, 0, 0);
             this.dateTimePickerEnd.ValueChanged += new System.EventHandler(this.dateTimePicker3_ValueChanged);
@@ -196,23 +202,27 @@
             this.dateTimePickerStart.CalendarMonthBackground = System.Drawing.SystemColors.MenuHighlight;
             this.dateTimePickerStart.CalendarTitleBackColor = System.Drawing.Color.Beige;
             this.dateTimePickerStart.CustomFormat = "dd MMM yyyy";
+            this.dateTimePickerStart.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 10F);
             this.dateTimePickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerStart.Location = new System.Drawing.Point(318, 8);
+            this.dateTimePickerStart.Location = new System.Drawing.Point(341, 5);
+            this.dateTimePickerStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerStart.MaxDate = new System.DateTime(2024, 12, 31, 0, 0, 0, 0);
             this.dateTimePickerStart.MinDate = new System.DateTime(2024, 1, 1, 0, 0, 0, 0);
             this.dateTimePickerStart.Name = "dateTimePickerStart";
-            this.dateTimePickerStart.Size = new System.Drawing.Size(144, 22);
+            this.dateTimePickerStart.Size = new System.Drawing.Size(144, 28);
             this.dateTimePickerStart.TabIndex = 3;
             this.dateTimePickerStart.Value = new System.DateTime(2024, 6, 17, 0, 0, 0, 0);
             this.dateTimePickerStart.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // buttonOk
             // 
-            this.buttonOk.BackColor = System.Drawing.Color.Yellow;
+            this.buttonOk.BackColor = System.Drawing.Color.Gold;
+            this.buttonOk.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 10F);
             this.buttonOk.ForeColor = System.Drawing.Color.Black;
-            this.buttonOk.Location = new System.Drawing.Point(633, 7);
+            this.buttonOk.Location = new System.Drawing.Point(649, 7);
+            this.buttonOk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(61, 29);
+            this.buttonOk.Size = new System.Drawing.Size(91, 28);
             this.buttonOk.TabIndex = 2;
             this.buttonOk.Text = "ок";
             this.buttonOk.UseVisualStyleBackColor = false;
@@ -221,12 +231,12 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 44);
+            this.panel1.Location = new System.Drawing.Point(0, 38);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1040, 79);
+            this.panel1.Size = new System.Drawing.Size(856, 34);
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -237,18 +247,20 @@
             this.panel4.Controls.Add(this.label6);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.ForeColor = System.Drawing.Color.Black;
-            this.panel4.Location = new System.Drawing.Point(542, 0);
+            this.panel4.Location = new System.Drawing.Point(547, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(498, 79);
+            this.panel4.Size = new System.Drawing.Size(309, 34);
             this.panel4.TabIndex = 9;
             // 
             // labelSaldo
             // 
             this.labelSaldo.AutoSize = true;
-            this.labelSaldo.Font = new System.Drawing.Font("Gentium Basic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSaldo.Location = new System.Drawing.Point(16, 29);
+            this.labelSaldo.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 17.2F);
+            this.labelSaldo.ForeColor = System.Drawing.Color.Transparent;
+            this.labelSaldo.Location = new System.Drawing.Point(81, -2);
             this.labelSaldo.Name = "labelSaldo";
-            this.labelSaldo.Size = new System.Drawing.Size(84, 32);
+            this.labelSaldo.Size = new System.Drawing.Size(68, 35);
             this.labelSaldo.TabIndex = 8;
             this.labelSaldo.Text = "10000";
             this.labelSaldo.Click += new System.EventHandler(this.label5_Click);
@@ -256,13 +268,42 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Uighur", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(18, 10);
+            this.label6.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 17.2F);
+            this.label6.ForeColor = System.Drawing.Color.Transparent;
+            this.label6.Location = new System.Drawing.Point(3, -1);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 24);
+            this.label6.Size = new System.Drawing.Size(88, 35);
             this.label6.TabIndex = 7;
             this.label6.Text = "Сальдо:";
             this.label6.Layout += new System.Windows.Forms.LayoutEventHandler(this.TotalProfitOutput);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.labelIncome);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.ForeColor = System.Drawing.Color.White;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(549, 34);
+            this.panel2.TabIndex = 6;
+            // 
+            // labelIncome
+            // 
+            this.labelIncome.AutoSize = true;
+            this.labelIncome.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 17.2F);
+            this.labelIncome.Location = new System.Drawing.Point(89, -2);
+            this.labelIncome.Name = "labelIncome";
+            this.labelIncome.Size = new System.Drawing.Size(68, 35);
+            this.labelIncome.TabIndex = 7;
+            this.labelIncome.Text = "10000";
+            this.labelIncome.Click += new System.EventHandler(this.label3_Click);
+            this.labelIncome.Layout += new System.Windows.Forms.LayoutEventHandler(this.BalanceOutput);
             // 
             // panel3
             // 
@@ -270,18 +311,19 @@
             this.panel3.Controls.Add(this.labelExpenses);
             this.panel3.Controls.Add(this.label2);
             this.panel3.ForeColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(170, 0);
+            this.panel3.Location = new System.Drawing.Point(269, -1);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(620, 79);
+            this.panel3.Size = new System.Drawing.Size(277, 79);
             this.panel3.TabIndex = 7;
             // 
             // labelExpenses
             // 
             this.labelExpenses.AutoSize = true;
-            this.labelExpenses.Font = new System.Drawing.Font("Gentium Basic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelExpenses.Location = new System.Drawing.Point(19, 29);
+            this.labelExpenses.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 17.2F);
+            this.labelExpenses.Location = new System.Drawing.Point(96, -2);
             this.labelExpenses.Name = "labelExpenses";
-            this.labelExpenses.Size = new System.Drawing.Size(84, 32);
+            this.labelExpenses.Size = new System.Drawing.Size(68, 35);
             this.labelExpenses.TabIndex = 8;
             this.labelExpenses.Text = "10000";
             this.labelExpenses.Click += new System.EventHandler(this.label4_Click);
@@ -290,47 +332,21 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Uighur", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(18, 10);
+            this.label2.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 17.2F);
+            this.label2.Location = new System.Drawing.Point(3, -2);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 24);
+            this.label2.Size = new System.Drawing.Size(103, 35);
             this.label2.TabIndex = 7;
             this.label2.Text = "Расходы:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.labelIncome);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.ForeColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(164, 79);
-            this.panel2.TabIndex = 6;
-            // 
-            // labelIncome
-            // 
-            this.labelIncome.AutoSize = true;
-            this.labelIncome.Font = new System.Drawing.Font("Gentium Basic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIncome.Location = new System.Drawing.Point(6, 29);
-            this.labelIncome.Name = "labelIncome";
-            this.labelIncome.Size = new System.Drawing.Size(84, 32);
-            this.labelIncome.TabIndex = 7;
-            this.labelIncome.Text = "10000";
-            this.labelIncome.Click += new System.EventHandler(this.label3_Click);
-            this.labelIncome.Layout += new System.Windows.Forms.LayoutEventHandler(this.BalanceOutput);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Gentium Basic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 13);
+            this.label1.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 17.2F);
+            this.label1.Location = new System.Drawing.Point(3, -2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 21);
+            this.label1.Size = new System.Drawing.Size(93, 35);
             this.label1.TabIndex = 6;
             this.label1.Text = "Доходы:";
             // 
@@ -341,7 +357,8 @@
             this.chart1.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
             this.chart1.Legends.Add(legend3);
-            this.chart1.Location = new System.Drawing.Point(16, 196);
+            this.chart1.Location = new System.Drawing.Point(0, 209);
+            this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chart1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -367,7 +384,7 @@
             series5.Name = "Факт";
             this.chart1.Series.Add(series4);
             this.chart1.Series.Add(series5);
-            this.chart1.Size = new System.Drawing.Size(530, 216);
+            this.chart1.Size = new System.Drawing.Size(429, 209);
             this.chart1.TabIndex = 6;
             this.chart1.Text = "Ожидание - реальность по расходам";
             title3.Alignment = System.Drawing.ContentAlignment.TopLeft;
@@ -378,12 +395,14 @@
             // 
             // panel5
             // 
+            this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.Controls.Add(this.chart1);
             this.panel5.Controls.Add(this.chartRealFactIncome);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel5.Location = new System.Drawing.Point(0, 123);
+            this.panel5.Location = new System.Drawing.Point(0, 72);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(572, 412);
+            this.panel5.Size = new System.Drawing.Size(429, 418);
             this.panel5.TabIndex = 7;
             // 
             // transactionDataBaseBindingSource
@@ -395,12 +414,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1040, 535);
+            this.ClientSize = new System.Drawing.Size(856, 490);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelHome);
             this.Controls.Add(this.chartExpenses);
             this.ForeColor = System.Drawing.Color.Transparent;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormDashbord";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormHome_Load);
@@ -411,10 +431,10 @@
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.transactionDataBaseBindingSource)).EndInit();

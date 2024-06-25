@@ -29,6 +29,8 @@ namespace WindowsFormsTrec
             dataBase.SaveAndExit();
             MessageBox.Show("Категория добавлена!");
             textBox1.Clear();
+            
+
 
         }
 
@@ -38,6 +40,11 @@ namespace WindowsFormsTrec
         }
 
         private void FormAdd2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
         {
 
         }

@@ -40,7 +40,8 @@ namespace WindowsFormsTrec
             dataBase.SaveAndExit();
             MessageBox.Show("Категория добавлена!");
             textBox1.Clear();
- 
+         
+
         }
 
         private void button2_Click(object sender, EventArgs e)

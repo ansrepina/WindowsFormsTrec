@@ -24,8 +24,10 @@ namespace WindowsFormsTrec
         {
             TransactionDataBase dataBase = new TransactionDataBase(accName);
 
-            comboBox4.Items.Add(dataBase.IncomeCategories);
+            comboBox4.Items.AddRange(dataBase.IncomeCategories);
             comboBox4.Items.Add("Новая категория");
+
+
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -34,7 +36,15 @@ namespace WindowsFormsTrec
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            if (comboBox4.Text == "Новая категория")
+            {
+
+                // dataBase.AddNewCategory
+                FormAdd2 form2 = new FormAdd2();
+                form2.Tag = this;
+                form2.Show(this);
+                Hide();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -53,6 +63,7 @@ namespace WindowsFormsTrec
                 comboBox2.SelectedIndex = 0;
                 comboBox4.SelectedIndex = 0;
                 maskedTextBox4.Clear();
+
 
             }
             catch (ArgumentException ex)

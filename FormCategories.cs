@@ -157,6 +157,15 @@ namespace WindowsFormsTrec
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (comboBox2.Text == "Новая категория")
+            {
+
+                // dataBase.AddNewCategory
+                FormAdd2 form2 = new FormAdd2();
+                form2.Tag = this;
+                form2.Show(this);
+                Hide();
+            }
 
         }
 
@@ -185,6 +194,11 @@ namespace WindowsFormsTrec
             {
                 maskedTextBox1.Text = DateTime.Today.ToString("dd.MM.yyyy");
             }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -46,7 +46,8 @@ namespace WindowsFormsTrec
 
         private void FormHome_Load(object sender, EventArgs e)
         {
-            string today = DateTime.Today.ToShortDateString(); //стартовое значение
+            string today = DateTime.Today.ToShortDateString();
+            
             Dictionary<string, double> chartSource = new Dictionary<string, double>();
             TransactionDataBase dataBase = new TransactionDataBase(accName);
             dataBase.OpenFile();
@@ -60,13 +61,52 @@ namespace WindowsFormsTrec
             chartExpenses.Series["pie"].ChartType = SeriesChartType.Pie;
             chartExpenses.Series["pie"].Points.DataBindXY(chartSource.Keys, chartSource.Values);
             //вывод в панель
-            double[] outt = dataBase.IncomeOutcomeSaldo(today, today);
-            labelIncome.Text = outt[0].ToString();
-            labelExpenses.Text = outt[1].ToString();
-            labelSaldo.Text = outt[2].ToString();
+            double[] outt1 = dataBase.IncomeOutcomeSaldo(today, today);
+            labelIncome.Text = outt1[0].ToString();
+            labelExpenses.Text = outt1[1].ToString();
+            labelSaldo.Text = outt1[2].ToString();
+
+            //вывод данных таблицы план/факт доходов
+            double[,] table = dataBase.IncomePlanFactDiagramData();
+            double[] y1Val = new double[12];
+            double[] y2Val = new double[12];
+            for (int i = 0; i < 12; i++)
+            {
+                y1Val[i] = table[0, i];
+                y2Val[i] = table[1, i];
+            }
+            string[] xVal = new string[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" };
+            chartRealFactIncome.Series.Clear();
+
+            Series s1 = new Series("План") { ChartType = SeriesChartType.Spline };
+            Series s2 = new Series("Факт") { ChartType = SeriesChartType.Spline };
+            s1.Points.DataBindXY(xVal, y1Val);
+            s2.Points.DataBindXY(xVal, y2Val);
+
+            chartRealFactIncome.Series.Add(s1);
+            chartRealFactIncome.Series.Add(s2);
+
+
+            //вывод данных таблицы план/факт расходов
+            double[,] table2 = dataBase.OutcomePlanFactDiagramData();
+            double[] y1Val2 = new double[12];
+            double[] y2Val2 = new double[12];
+            for (int i = 0; i < 12; i++)
+            {
+                y1Val2[i] = table2[0, i];
+                y2Val2[i] = table2[1, i];
+            }
+            chart1.Series.Clear();
+
+            Series s12 = new Series("План") { ChartType = SeriesChartType.Spline };
+            Series s22 = new Series("Факт") { ChartType = SeriesChartType.Spline };
+            s12.Points.DataBindXY(xVal, y1Val2);
+            s22.Points.DataBindXY(xVal, y2Val2);
+
+            chart1.Series.Add(s12);
+            chart1.Series.Add(s22);
+
             dataBase.CloseFile();
-
-
 
         }
 
@@ -181,7 +221,7 @@ namespace WindowsFormsTrec
             chart1.Series.Add(s12);
             chart1.Series.Add(s22);
 
-
+            dataBase.CloseFile();
         }
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
@@ -194,6 +234,11 @@ namespace WindowsFormsTrec
         }
 
         private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click_1(object sender, EventArgs e)
         {
 
         }
